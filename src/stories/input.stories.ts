@@ -2,7 +2,7 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import "@/index.css";
 
-import { Input } from "../components/ui/input";
+import Input from "../components/Input";
 
 const meta = {
   title: "UI/Input",
@@ -32,6 +32,8 @@ export const Default: Story = {};
 export const WithValue: Story = {
   args: {
     defaultValue: "Acme, Inc.",
+    label: "Company Name",
+    fullWidth: true,
   },
 };
 
@@ -66,6 +68,7 @@ export const Telephone: Story = {
 export const HelperText: Story = {
   args: {
     helperText: "This is some helper text.",
+    label: "Input with Helper Text",
   },
 };
 

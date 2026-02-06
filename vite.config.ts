@@ -14,39 +14,66 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
-  test: {
-    projects: [
-      {
-        extends: true,
-        plugins: [
-          // The plugin will run tests for the stories defined in your Storybook config
-          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-          storybookTest({
-            configDir: path.join(dirname, ".storybook"),
-          }),
-        ],
-        test: {
-          name: "storybook",
-          browser: {
-            enabled: true,
-            headless: true,
-            provider: playwright({}),
-            instances: [
-              {
-                browser: "chromium",
-              },
-            ],
-          },
-          setupFiles: [".storybook/vitest.setup.ts"],
-        },
+export default defineConfig(({ mode }) => {
+  const isLib = mode === "lib";
+
+  return {
+    plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
       },
-    ],
-  },
+    },
+    ...(isLib
+      ? {
+          build: {
+            lib: {
+              entry: {
+                index: path.resolve(__dirname, "src/index.ts"),
+                styles: path.resolve(__dirname, "src/styles.ts"),
+                "components/Input": path.resolve(
+                  __dirname,
+                  "src/components/Input.tsx",
+                ),
+              },
+              cssFileName: "styles",
+              formats: ["es", "cjs"],
+              fileName: (format, entryName) =>
+                format === "cjs" ? `${entryName}.cjs` : `${entryName}.js`,
+            },
+            rollupOptions: {
+              external: ["react", "react-dom"],
+              output: {
+                globals: {
+                  react: "React",
+                  "react-dom": "ReactDOM",
+                },
+              },
+            },
+          },
+        }
+      : {}),
+    test: {
+      projects: [
+        {
+          extends: true,
+          plugins: [
+            storybookTest({
+              configDir: path.join(dirname, ".storybook"),
+            }),
+          ],
+          test: {
+            name: "storybook",
+            browser: {
+              enabled: true,
+              headless: true,
+              provider: playwright({}),
+              instances: [{ browser: "chromium" }],
+            },
+            setupFiles: [".storybook/vitest.setup.ts"],
+          },
+        },
+      ],
+    },
+  };
 });
