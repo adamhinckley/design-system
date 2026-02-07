@@ -1,0 +1,569 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import Styling from "./assets/styling.png";
+import Assets from "./assets/assets.png";
+import Docs from "./assets/docs.png";
+import Testing from "./assets/testing.png";
+import Accessibility from "./assets/accessibility.png";
+import Theming from "./assets/theming.png";
+
+<Meta title="Design System" />
+
+<div className="ds-page">
+  <header className="ds-hero">
+    <div className="ds-hero-copy">
+      <span className="ds-pill">Work in progress</span>
+      <h1>Design System</h1>
+      <p className="ds-lede">
+        A living collection of UI primitives and patterns. This is active build
+        work, so names and APIs may evolve as the component set grows.
+      </p>
+      <div className="ds-callout">
+        <div className="ds-callout-title">Release note</div>
+        <p>
+          When the core components are complete, this will be published as an
+          npm package for internal use.
+        </p>
+      </div>
+      <div className="ds-actions">
+        <a className="ds-btn" href="#components">Explore components</a>
+        <a className="ds-btn ds-btn-ghost" href="#roadmap">See roadmap</a>
+      </div>
+      <div className="ds-meta">
+        <div className="ds-meta-item">
+          <span className="ds-meta-label">Status</span>
+          <span className="ds-meta-value">WIP</span>
+        </div>
+        <div className="ds-meta-item">
+          <span className="ds-meta-label">Current focus</span>
+          <span className="ds-meta-value">Inputs and form patterns</span>
+        </div>
+      </div>
+    </div>
+    <div className="ds-hero-panel">
+      <div className="ds-panel-card">
+        <h3>Currently shipping</h3>
+        <ul className="ds-list">
+          <li><code>TextField</code></li>
+          <li><code>PasswordField</code></li>
+        </ul>
+        <p className="ds-panel-note">More form elements are in progress.</p>
+      </div>
+      <div className="ds-panel-card ds-panel-card-alt">
+        <h3>Quality bar</h3>
+        <p>Accessibility first, tokens for consistency, tests for confidence.</p>
+        <div className="ds-chip-row">
+          <span className="ds-chip">A11y</span>
+          <span className="ds-chip">Tokens</span>
+          <span className="ds-chip">Tests</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<section id="components" className="ds-section">
+  <div className="ds-section-head">
+    <h2>Components in progress</h2>
+    <p>
+      Each component is designed to scale across products with clear usage
+      guidance and consistent behavior.
+    </p>
+  </div>
+  <div className="ds-grid">
+    <article className="ds-card">
+      <img src={Docs} alt="Documentation preview" />
+      <h3>Inputs and forms</h3>
+      <p>
+        A consistent form layer with strong defaults and clear validation
+        states.
+      </p>
+      <div className="ds-tags">
+        <span>TextField</span>
+        <span>PasswordField</span>
+      </div>
+    </article>
+    <article className="ds-card">
+      <img src={Styling} alt="Styling foundations" />
+      <h3>Foundations</h3>
+      <p>
+        Tokens for type, color, spacing, and motion to keep the UI cohesive.
+      </p>
+      <div className="ds-tags">
+        <span>Typography</span>
+        <span>Color</span>
+        <span>Spacing</span>
+      </div>
+    </article>
+    <article className="ds-card">
+      <img src={Accessibility} alt="Accessibility testing" />
+      <h3>Accessibility</h3>
+      <p>
+        Keyboard support, ARIA usage, and contrast checks built into every
+        component.
+      </p>
+      <div className="ds-tags">
+        <span>Keyboard</span>
+        <span>Contrast</span>
+      </div>
+    </article>
+    <article className="ds-card">
+      <img src={Testing} alt="Testing approach" />
+      <h3>Testing</h3>
+      <p>
+        Stories double as regression coverage to prevent design drift over time.
+      </p>
+      <div className="ds-tags">
+        <span>Storybook</span>
+        <span>Visual checks</span>
+      </div>
+    </article>
+    <article className="ds-card">
+      <img src={Theming} alt="Theming layers" />
+      <h3>Theming</h3>
+      <p>A stable theme surface for product-specific branding and tone.</p>
+      <div className="ds-tags">
+        <span>Tokens</span>
+        <span>Variants</span>
+      </div>
+    </article>
+    <article className="ds-card">
+      <img src={Assets} alt="Assets and resources" />
+      <h3>Assets</h3>
+      <p>Icon and asset guidelines for consistent scale and alignment.</p>
+      <div className="ds-tags">
+        <span>Icons</span>
+        <span>Illustrations</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="roadmap" className="ds-section">
+  <div className="ds-section-head">
+    <h2>Roadmap</h2>
+    <p>
+      This is the path toward a stable, published package. Dates are flexible
+      while the foundation solidifies.
+    </p>
+  </div>
+  <div className="ds-timeline">
+    <div className="ds-timeline-item">
+      <div className="ds-timeline-marker"></div>
+      <div className="ds-timeline-body">
+        <h4>Phase 1: Foundations</h4>
+        <p>Tokens, typography, spacing, and color system.</p>
+      </div>
+    </div>
+    <div className="ds-timeline-item">
+      <div className="ds-timeline-marker"></div>
+      <div className="ds-timeline-body">
+        <h4>Phase 2: Core inputs</h4>
+        <p>Text inputs, selection controls, and validation patterns.</p>
+      </div>
+    </div>
+    <div className="ds-timeline-item">
+      <div className="ds-timeline-marker"></div>
+      <div className="ds-timeline-body">
+        <h4>Phase 3: Navigation and layout</h4>
+        <p>Structure components and reusable layout primitives.</p>
+      </div>
+    </div>
+    <div className="ds-timeline-item">
+      <div className="ds-timeline-marker"></div>
+      <div className="ds-timeline-body">
+        <h4>Phase 4: npm release</h4>
+        <p>Publish a stable package once the core set is ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section className="ds-section">
+    <div className="ds-release">
+      <div className="ds-release-copy">
+        <h2>npm release plan</h2>
+        <p>
+          The first public package will land after the core components are
+          finalized. Until then, this Storybook is the source of truth.
+        </p>
+      </div>
+      <div className="ds-release-card">
+        <div className="ds-release-row">
+          <div className="ds-release-dot"></div>
+          <div>
+            <h4>Target audience</h4>
+            <p>Internal product teams building new UI.</p>
+          </div>
+        </div>
+        <div className="ds-release-row">
+          <div className="ds-release-dot"></div>
+          <div>
+            <h4>Versioning</h4>
+            <p>Pre-1.0 while APIs stabilize, then semver.</p>
+          </div>
+        </div>
+        <div className="ds-release-row">
+          <div className="ds-release-dot"></div>
+          <div>
+            <h4>Documentation</h4>
+            <p>Usage guidance and migration notes per release.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  {`
+  .ds-page {
+    --ink: #1f1b16;
+    --muted: #5f5850;
+    --accent: #d46b2e;
+    --accent-2: #156b6a;
+    --surface: #fff6ea;
+    --panel: #ffffff;
+    --shadow: 0 28px 60px rgba(28, 20, 12, 0.14);
+    --soft-shadow: 0 10px 24px rgba(28, 20, 12, 0.08);
+    color: var(--ink);
+    background: radial-gradient(circle at 10% 20%, #fff2d9 0%, transparent 55%),
+      radial-gradient(circle at 90% 10%, #e7f2f0 0%, transparent 50%),
+      linear-gradient(180deg, #f8f2e9 0%, #f3ebe0 100%);
+    border-radius: 18px;
+    padding: 40px;
+    font-family: "IBM Plex Sans", "Source Sans 3", "Noto Sans", sans-serif;
+  }
+
+  .ds-page h1,
+  .ds-page h2,
+  .ds-page h3,
+  .ds-page h4 {
+    font-family: "Fraunces", "Cormorant Garamond", serif;
+    letter-spacing: -0.02em;
+  }
+
+  .ds-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: start;
+    animation: ds-rise 0.7s ease both;
+  }
+
+  .ds-hero-copy h1 {
+    font-size: 44px;
+    margin: 12px 0 12px;
+  }
+
+  .ds-lede {
+    font-size: 18px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .ds-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(212, 107, 46, 0.15);
+    color: #a64c18;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  .ds-callout {
+    background: var(--panel);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-shadow: var(--soft-shadow);
+  }
+
+  .ds-callout-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .ds-actions {
+    display: flex;
+    gap: 12px;
+    margin: 18px 0 22px;
+  }
+
+  .ds-btn {
+    background: var(--accent);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--soft-shadow);
+  }
+
+  .ds-btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(212, 107, 46, 0.4);
+  }
+
+  .ds-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .ds-meta-item {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: var(--soft-shadow);
+  }
+
+  .ds-meta-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .ds-meta-value {
+    font-weight: 700;
+  }
+
+  .ds-hero-panel {
+    display: grid;
+    gap: 16px;
+  }
+
+  .ds-panel-card {
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .ds-panel-card-alt {
+    background: linear-gradient(145deg, #f0faf7 0%, #ffffff 100%);
+  }
+
+  .ds-list {
+    margin: 10px 0 12px;
+    padding-left: 18px;
+    color: var(--muted);
+  }
+
+  .ds-panel-note {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .ds-chip-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ds-chip {
+    background: rgba(21, 107, 106, 0.12);
+    color: #0f5554;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ds-section {
+    margin-top: 48px;
+  }
+
+  .ds-section-head {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .ds-section-head p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .ds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .ds-card {
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--soft-shadow);
+    display: grid;
+    gap: 12px;
+    animation: ds-rise 0.7s ease both;
+  }
+
+  .ds-card img {
+    width: 100%;
+    border-radius: 12px;
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .ds-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .ds-tags span {
+    background: #f4eee6;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+
+  .ds-timeline {
+    display: grid;
+    gap: 14px;
+  }
+
+  .ds-timeline-item {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 14px 16px;
+    background: var(--panel);
+    border-radius: 14px;
+    box-shadow: var(--soft-shadow);
+    animation: ds-rise 0.7s ease both;
+  }
+
+  .ds-timeline-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--accent-2);
+    margin-top: 6px;
+  }
+
+  .ds-release {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .ds-release-card {
+    background: var(--panel);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 14px;
+  }
+
+  .ds-release-row {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ds-release-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 999px;
+    margin-top: 7px;
+  }
+
+  .ds-release-copy p {
+    color: var(--muted);
+  }
+
+  .ds-card:nth-child(1),
+  .ds-timeline-item:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .ds-card:nth-child(2),
+  .ds-timeline-item:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .ds-card:nth-child(3),
+  .ds-timeline-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .ds-card:nth-child(4),
+  .ds-timeline-item:nth-child(4) {
+    animation-delay: 0.28s;
+  }
+
+  .ds-card:nth-child(5) {
+    animation-delay: 0.36s;
+  }
+
+  .ds-card:nth-child(6) {
+    animation-delay: 0.44s;
+  }
+
+  @keyframes ds-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .ds-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .ds-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ds-release {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ds-page {
+      padding: 24px;
+    }
+
+    .ds-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ds-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .ds-meta {
+      grid-template-columns: 1fr;
+    }
+  }
+  `}
+</style>
