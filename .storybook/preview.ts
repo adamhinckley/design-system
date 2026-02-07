@@ -10,7 +10,7 @@ const preview: Preview = {
       },
     },
     docs: {
-      story: { inline: false },
+      story: { inline: true },
     },
 
     a11y: {

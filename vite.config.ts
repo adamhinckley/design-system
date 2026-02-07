@@ -31,10 +31,6 @@ export default defineConfig(({ mode }) => {
               entry: {
                 index: path.resolve(__dirname, "src/index.ts"),
                 styles: path.resolve(__dirname, "src/styles.ts"),
-                "components/Input": path.resolve(
-                  __dirname,
-                  "src/components/Input.tsx",
-                ),
               },
               cssFileName: "styles",
               formats: ["es", "cjs"],

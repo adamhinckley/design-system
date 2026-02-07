@@ -2,85 +2,60 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import "@/index.css";
 
-import Input from "../components/Input";
+import TextField from "../components/TextField";
+import PasswordField from "@/components/PasswordField";
 
 const meta = {
   title: "UI/Input",
-  component: Input,
+  component: TextField,
   parameters: {
     layout: "centered",
+    parameters: {
+      controls: { disable: true },
+    },
   },
   tags: ["autodocs"],
   argTypes: {
     type: {
-      control: { type: "select" },
-      options: ["text", "email", "password", "search", "tel", "url"],
+      table: {
+        disable: true,
+      },
+    },
+    helperText: {
+      table: {
+        disable: true,
+      },
     },
   },
-  args: {
-    type: "text",
-    placeholder: "Enter text",
-  },
-  render: (args) => React.createElement(Input, { ...args }),
-} satisfies Meta<typeof Input>;
+  args: {},
+  render: (args) => React.createElement(TextField, { ...args }),
+} satisfies Meta<typeof TextField>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+type PasswordStory = StoryObj<typeof PasswordField>;
 
-export const Default: Story = {};
-
-export const WithValue: Story = {
+export const Default: Story = {
   args: {
-    defaultValue: "Acme, Inc.",
-    label: "Company Name",
-    fullWidth: true,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    placeholder: "Disabled",
-  },
-};
-
-export const Email: Story = {
-  args: {
-    type: "email",
-    placeholder: "name@example.com",
-  },
-};
-
-export const Password: Story = {
-  args: {
-    type: "password",
-    placeholder: "••••••••",
-  },
-};
-
-export const Telephone: Story = {
-  args: {
-    type: "tel",
-    placeholder: "(123) 456-7890",
-  },
-};
-
-export const HelperText: Story = {
-  args: {
+    placeholder: "Enter text",
+    label: "Default Input",
     helperText: "This is some helper text.",
-    label: "Input with Helper Text",
   },
+};
+
+export const PasswordWithToggle: PasswordStory = {
+  args: {
+    placeholder: "enter your password",
+    label: "Password",
+    fullWidth: true,
+    showVisibilityToggle: true,
+  },
+  render: (args) => React.createElement(PasswordField, { ...args }),
 };
 
 export const ErrorState: Story = {
   args: {
-    error: "There was an error with your submission.",
-  },
-};
-
-export const BooleanErrorState: Story = {
-  args: {
-    error: true,
-    helperText: "There was an error with your submission.",
+    label: "Input with Error",
+    errorText: "There is an error with this input.",
   },
 };
