@@ -10,6 +10,8 @@ pnpm install
 
 ## Storybook
 
+View the deployed Storybook: https://design-system-hazel-mu.vercel.app/
+
 Run Storybook locally:
 
 ```sh

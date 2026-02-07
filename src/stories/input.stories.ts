@@ -6,7 +6,7 @@ import TextField from "../components/TextField";
 import PasswordField from "@/components/PasswordField";
 
 const meta = {
-  title: "UI/Input",
+  title: "UI/TextField",
   component: TextField,
   parameters: {
     layout: "centered",
