@@ -16,7 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
-      type,
+      type = "text",
       helperText,
       errorText,
       id,
