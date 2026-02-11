@@ -1,20 +1,7 @@
-import { forwardRef, useId } from "react";
+- All components need to have a color prop that works with the tailwind colors and default to slate and support both light and dark.
+- Use elegant choices when assigning colors and make a color for each element in the component similar to this:
 
-import { cn } from "@/lib/utils";
-
-export type InputProps = React.ComponentProps<"input"> & {
-  helperText?: string;
-  errorText?: string;
-  label?: string;
-  fullWidth?: boolean;
-  disabled?: boolean;
-  startAdornment?: React.ReactNode;
-  endAdornment?: React.ReactNode;
-  color?: InputColor;
-  removeBackground?: boolean;
-  inputSize?: InputSize;
-};
-
+```
 const inputColorClasses = {
   slate: {
     label: "text-slate-700 dark:text-slate-300",
@@ -196,120 +183,6 @@ const inputColorClasses = {
     placeholder: "placeholder:text-rose-400 dark:placeholder:text-rose-500",
   },
 } as const;
+```
 
-const sizeClasses = {
-  sm: "h-9 text-sm",
-  md: "h-11 text-base",
-  lg: "h-12 text-lg",
-} as const;
-
-type InputColor = keyof typeof inputColorClasses;
-type InputSize = keyof typeof sizeClasses;
-
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      type = "text",
-      helperText,
-      errorText,
-      id,
-      label,
-      fullWidth,
-      startAdornment,
-      endAdornment,
-      color = "slate",
-      removeBackground = false,
-      inputSize = "md",
-      ...props
-    },
-    ref,
-  ) => {
-    const generatedId = useId();
-    const hasError = Boolean(errorText);
-    const helperContent = errorText ?? helperText;
-    const inputId = id ?? (label || helperContent ? generatedId : undefined);
-    const helperId = inputId ? `${inputId}-help` : undefined;
-    const hasStartAdornment = Boolean(startAdornment);
-    const hasEndAdornment = Boolean(endAdornment);
-    const colorClasses = inputColorClasses[color];
-    const sizeClass = sizeClasses[inputSize];
-
-    return (
-      <div
-        className={cn(
-          "relative flex flex-col",
-          fullWidth ? "w-full" : "w-64",
-          className,
-        )}
-      >
-        {label ? (
-          <label
-            htmlFor={inputId}
-            className={cn(
-              "mb-1 ml-2 block text-sm font-medium",
-              hasError ? "text-destructive" : colorClasses.label,
-            )}
-          >
-            {label}
-          </label>
-        ) : null}
-        <div className="relative flex items-center">
-          {hasStartAdornment ? (
-            <div
-              className={cn(
-                "absolute left-3 flex h-full items-center",
-                hasError ? "text-destructive" : colorClasses.adornment,
-              )}
-            >
-              {startAdornment}
-            </div>
-          ) : null}
-          <input
-            id={inputId}
-            type={type}
-            className={cn(
-              "flex w-full rounded-lg border bg-white px-3 py-2 text-slate-900 shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-slate-700 focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50  dark:bg-slate-950 dark:text-slate-50",
-              sizeClass,
-              !hasError && colorClasses.border,
-              !hasError && colorClasses.focus,
-              !hasError && colorClasses.placeholder,
-              removeBackground && "bg-transparent dark:bg-transparent",
-              hasStartAdornment && "pl-10",
-              hasEndAdornment && "pr-10",
-              hasError && "border-destructive focus-visible:ring-destructive",
-            )}
-            aria-invalid={hasError || undefined}
-            aria-describedby={helperContent && helperId ? helperId : undefined}
-            ref={ref}
-            {...props}
-          />
-          {hasEndAdornment ? (
-            <div
-              className={cn(
-                "absolute right-3 flex h-full items-center",
-                hasError ? "text-destructive" : colorClasses.adornment,
-              )}
-            >
-              {endAdornment}
-            </div>
-          ) : null}
-        </div>
-        {helperContent ? (
-          <p
-            id={helperId}
-            className={cn(
-              "pointer-events-none absolute left-0 top-full mt-1 ml-2 text-xs",
-              hasError ? "text-destructive" : colorClasses.helper,
-            )}
-          >
-            {helperContent}
-          </p>
-        ) : null}
-      </div>
-    );
-  },
-);
-Input.displayName = "Input";
-
-export default Input;
+- Always use TypeScript

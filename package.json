@@ -24,6 +24,8 @@
     "dev": "vite",
     "build": "pnpm run build:lib",
     "build:lib": "vite build --mode lib && tsc -p tsconfig.build.json",
+    "yalc:publish": "pnpm run build:lib && yalc publish --private",
+    "yalc:push": "pnpm run build:lib && yalc push",
     "verify:types": "node -e \"const fs=require('fs'); const files=['dist/index.d.ts','dist/components/TextField.d.ts']; const missing=files.filter(f=>!fs.existsSync(f)); if(missing.length){console.error('Missing types:', missing.join(', ')); process.exit(1);} console.log('Types OK');\"",
     "prepublishOnly": "pnpm run build:lib && pnpm run verify:types",
     "lint": "eslint .",
@@ -70,6 +72,7 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "yalc": "1.0.0-pre.53"
   }
 }
