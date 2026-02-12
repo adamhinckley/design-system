@@ -1,0 +1,39 @@
+# Source files
+src/
+public/
+
+# Configuration files
+.storybook/
+vite.config.ts
+vitest.shims.d.ts
+tsconfig.*.json
+eslint.config.js
+tailwind.config.ts
+components.json
+
+# Development files
+index.html
+.gitignore
+AGENTS.md
+
+# Documentation
+README.md
+
+# Logs and cache
+*.log
+.DS_Store
+
+# Dependencies (included in pnpm-lock)
+node_modules/
+pnpm-lock.yaml
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Testing
+vitest.config.ts

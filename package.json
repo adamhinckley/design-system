@@ -1,12 +1,14 @@
 {
-  "name": "design-system",
-  "version": "0.0.0",
+  "name": "@adamhinckley/design-system",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "readme": "./README.npm.md",
   "files": [
-    "dist"
+    "dist",
+    "README.npm.md"
   ],
   "sideEffects": [
     "**/*.css"
@@ -27,7 +29,8 @@
     "yalc:publish": "pnpm run build:lib && yalc publish --private",
     "yalc:push": "pnpm run build:lib && yalc push",
     "verify:types": "node -e \"const fs=require('fs'); const files=['dist/index.d.ts','dist/components/TextField.d.ts']; const missing=files.filter(f=>!fs.existsSync(f)); if(missing.length){console.error('Missing types:', missing.join(', ')); process.exit(1);} console.log('Types OK');\"",
-    "prepublishOnly": "pnpm run build:lib && pnpm run verify:types",
+    "prepublishOnly": "pnpm run build:lib && pnpm run verify:types && mv README.md README.github.md && mv README.npm.md README.md",
+    "postpublish": "mv README.md README.npm.md && mv README.github.md README.md",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -74,5 +77,8 @@
     "vite": "^7.2.4",
     "vitest": "^4.0.18",
     "yalc": "1.0.0-pre.53"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

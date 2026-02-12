@@ -1,7 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 import React from "react";
 import "../src/index.css";
-import { BackgroundProvider } from "../src/theme/background";
 
 const themeBackgrounds = {
   light: "#ffffff",
@@ -118,10 +117,7 @@ const preview: Preview = {
         document.body.style.colorScheme =
           resolved.mode === "dark" ? "dark" : "light";
       }
-      return React.createElement(BackgroundProvider, {
-        value: resolved,
-        children: React.createElement(Story),
-      });
+      return React.createElement(Story);
     },
   ],
 };
