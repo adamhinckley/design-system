@@ -12,7 +12,7 @@ const BackgroundContext = React.createContext<BackgroundContextValue>({
   color: "#ffffff",
 });
 
-const BackgroundProvider = ({
+export const BackgroundProvider = ({
   value,
   children,
 }: {
@@ -26,7 +26,7 @@ const BackgroundProvider = ({
   );
 };
 
-const useBackground = () => React.useContext(BackgroundContext);
+// eslint-disable-next-line react-refresh/only-export-components
+export const useBackground = () => React.useContext(BackgroundContext);
 
 export type { BackgroundMode, BackgroundContextValue };
-export { BackgroundProvider, useBackground };
