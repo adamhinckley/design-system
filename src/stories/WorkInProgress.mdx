@@ -12,42 +12,40 @@ import Theming from "./assets/theming.png";
 <div className="ds-page">
   <header className="ds-hero">
     <div className="ds-hero-copy">
-      <span className="ds-pill">Work in progress</span>
+      <span className="ds-pill">Published</span>
       <h1>Design System</h1>
       <p className="ds-lede">
-        A living collection of UI primitives and patterns. This is active build
-        work, so names and APIs may evolve as the component set grows.
+        A modern React component library with built-in dark mode and flexible color theming. Now available on npm for production use.
       </p>
       <div className="ds-callout">
         <div className="ds-callout-title">Release note</div>
         <p>
-          When the core components are complete, this will be published as an
-          npm package for internal use.
+          This design system is published and ready to use. It supports all Tailwind CSS color palettes with dark mode support built in.
         </p>
       </div>
       <div className="ds-actions">
-        <a className="ds-btn" href="#components">Explore components</a>
         <a className="ds-btn ds-btn-ghost" href="#roadmap">See roadmap</a>
       </div>
       <div className="ds-meta">
         <div className="ds-meta-item">
           <span className="ds-meta-label">Status</span>
-          <span className="ds-meta-value">WIP</span>
+          <span className="ds-meta-value">Published</span>
         </div>
         <div className="ds-meta-item">
-          <span className="ds-meta-label">Current focus</span>
-          <span className="ds-meta-value">Inputs and form patterns</span>
+          <span className="ds-meta-label">Color Support</span>
+          <span className="ds-meta-value">Full Tailwind Palette</span>
         </div>
       </div>
     </div>
     <div className="ds-hero-panel">
       <div className="ds-panel-card">
-        <h3>Currently shipping</h3>
+        <h3>Current phase</h3>
         <ul className="ds-list">
-          <li><code>TextField</code></li>
-          <li><code>PasswordField</code></li>
+          <li><code>TextField</code> <span style={{color: '#16a34a'}}>✓ Complete</span></li>
+          <li><code>PasswordField</code> <span style={{color: '#16a34a'}}>✓ Complete</span></li>
+          <li><code>Button</code> <span style={{color: '#ea580c'}}>In progress</span></li>
         </ul>
-        <p className="ds-panel-note">More form elements are in progress.</p>
+        <p className="ds-panel-note">Phase 1: Text inputs and buttons.</p>
       </div>
       <div className="ds-panel-card ds-panel-card-alt">
         <h3>Quality bar</h3>
@@ -150,8 +148,11 @@ import Theming from "./assets/theming.png";
     <div className="ds-timeline-item">
       <div className="ds-timeline-marker"></div>
       <div className="ds-timeline-body">
-        <h4>Phase 1: Foundations</h4>
-        <p>Tokens, typography, spacing, and color system.</p>
+        <h4>Phase 1: Text inputs and buttons</h4>
+        <p>
+          Core form inputs and primary action components with full theming
+          support.
+        </p>
       </div>
     </div>
     <div className="ds-timeline-item">
