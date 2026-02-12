@@ -41,9 +41,7 @@ for (const exportPath of exportPaths) {
   if (!resolved) {
     continue;
   }
-  const distPath = path
-    .join("dist", resolved)
-    .replace(/\.tsx?$/, ".d.ts");
+  const distPath = path.join("dist", resolved).replace(/\.tsx?$/, ".d.ts");
   dtsFiles.add(distPath);
 }
 
