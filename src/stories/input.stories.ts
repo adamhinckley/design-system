@@ -2,8 +2,8 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import "@/index.css";
 
-import TextField from "../components/TextField";
-import PasswordField from "@/components/PasswordField";
+import TextField from "../components/ui/TextField";
+import PasswordField from "@/components/ui/PasswordField";
 
 const meta = {
   title: "UI/TextField",

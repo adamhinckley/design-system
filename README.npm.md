@@ -16,19 +16,19 @@ A modern, accessible React component library built with TypeScript and Tailwind 
 ## Installation
 
 ```bash
-npm install @adamhinckley/design-system react react-dom
+npm install @adamhinckley/design-system
 ```
 
 or with pnpm:
 
 ```bash
-pnpm add @adamhinckley/design-system react react-dom
+pnpm add @adamhinckley/design-system
 ```
 
 or with yarn:
 
 ```bash
-yarn add @adamhinckley/design-system react react-dom
+yarn add @adamhinckley/design-system
 ```
 
 ## Setup
