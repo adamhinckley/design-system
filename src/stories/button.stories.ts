@@ -4,7 +4,6 @@ import "@/index.css";
 
 import { Button, type ColorType } from "../components/ui/Button";
 import { ArrowDownIcon } from "./assets/ArrowDownIcon";
-import { ButtonDocs } from "./ButtonDocs";
 
 const COLORS: ColorType[] = [
   "slate",
@@ -46,11 +45,8 @@ const meta = {
   component: Button,
   parameters: {
     layout: "centered",
-    docs: {
-      page: ButtonDocs,
-    },
   },
-  tags: ["autodocs"],
+  //   tags: ["autodocs"],
   argTypes: {},
   args: {
     children: "Button",

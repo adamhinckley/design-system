@@ -328,6 +328,7 @@ export interface ButtonProps
   asChild?: boolean;
   color?: ColorType;
   rounded?: boolean;
+  fullWidth?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -339,6 +340,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       asChild = false,
       color = "slate",
       rounded = false,
+      fullWidth = false,
       ...props
     },
     ref,
@@ -354,6 +356,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           buttonVariants({ variant, size }),
           colorVariant,
           rounded && "rounded-full",
+          fullWidth ? "w-full" : "w-fit self-start justify-self-start",
           className,
         )}
         ref={ref}

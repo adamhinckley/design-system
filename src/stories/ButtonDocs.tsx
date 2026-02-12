@@ -1,241 +1,264 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
-  Stories,
-} from "@storybook/addon-docs/blocks";
+// import {
+//   Title,
+//   Subtitle,
+//   Description,
+//   Canvas,
+//   Story,
+//   Source,
+//   Meta,
+// } from "@storybook/addon-docs/blocks";
 
-export const ButtonDocs = () => {
-  return (
-    <>
-      <Title>Button</Title>
-      <Subtitle>
-        A versatile button component with support for multiple variants, sizes,
-        colors, and states.
-      </Subtitle>
+// import * as ButtonStories from "./button.stories";
 
-      <Description>
-        {`
-## Features
+// export const ButtonDocs = () => {
+//   return (
+//     <>
+//       <Meta of={ButtonStories} />
+//       <Title>Button Docs</Title>
+//       <Subtitle>
+//         A versatile button component with support for multiple variants, sizes,
+//         colors, and states.
+//       </Subtitle>
 
-- **6 Variants**: default, destructive, outline, secondary, ghost, link
-- **4 Sizes**: default, sm, lg, icon
-- **22 Colors**: Full Tailwind color palette with dark mode support
-- **Rounded**: Pill-shaped buttons with the \`rounded\` prop
-- **asChild**: Apply button styles to any element
-- **Responsive**: Works seamlessly across all screen sizes
+//       <div>
+//         {`
+// ## Features
 
-## Installation
+// - **6 Variants**: default, destructive, outline, secondary, ghost, link
+// - **4 Sizes**: default, sm, lg, icon
+// - **22 Colors**: Full Tailwind color palette with dark mode support
+// - **Rounded**: Pill-shaped buttons with the \`rounded\` prop
+// - **asChild**: Apply button styles to any element
+// - **Responsive**: Works seamlessly across all screen sizes
 
-\`\`\`bash
-npm install @radix-ui/react-slot class-variance-authority
-\`\`\`
+// ## Installation
 
-## Basic Usage
+// \`\`\`bash
+// npm install @radix-ui/react-slot class-variance-authority
+// \`\`\`
 
-\`\`\`tsx
-import { Button } from "@/components/ui/button";
+// ## Basic Usage
 
-export function MyComponent() {
-  return <Button>Click me</Button>;
-}
-\`\`\`
-        `}
-      </Description>
+// \`\`\`tsx
+// import { Button } from "@/components/ui/button";
 
-      <Primary />
+// export function MyComponent() {
+//   return <Button>Click me</Button>;
+// }
+// \`\`\`
+//         `}
+//       </div>
 
-      <Controls />
+//       <div>
+//         {`
+// ## Live Examples
 
-      <Description>
-        {`
-## Variants
+// These examples show the intended usage style for the Button component.
+//         `}
+//       </div>
 
-The Button component supports 6 different variants:
+//       <Story of={ButtonStories.Default} />
+//       <Source language="tsx" code={`<Button>Click me</Button>`} />
 
-### Default
-Primary action button used for main calls-to-action.
+//       <Story of={ButtonStories.Outline} />
+//       <Source
+//         language="tsx"
+//         code={`<Button variant="outline">Outline Button</Button>`}
+//       />
 
-\`\`\`tsx
-<Button variant="default">Default Button</Button>
-\`\`\`
+//       <Story of={ButtonStories.AsChildLink} />
+//       <Source
+//         language="tsx"
+//         code={`<Button asChild>
+//   <a href="#">Navigate to Page</a>
+// </Button>`}
+//       />
 
-### Outline
-Bordered button with transparent background, good for secondary actions.
+//       <div>
+//         {`
+// ## Variants
 
-\`\`\`tsx
-<Button variant="outline">Outline Button</Button>
-\`\`\`
+// The Button component supports 6 different variants:
 
-### Secondary
-Subtle button with a light background, useful for tertiary actions.
+// ### Default
+// Primary action button used for main calls-to-action.
 
-\`\`\`tsx
-<Button variant="secondary">Secondary</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button variant="default">Default Button</Button>
+// \`\`\`
 
-### Ghost
-Minimal button with only text, best for less prominent actions.
+// ### Outline
+// Bordered button with transparent background, good for secondary actions.
 
-\`\`\`tsx
-<Button variant="ghost">Ghost Button</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button variant="outline">Outline Button</Button>
+// \`\`\`
 
-### Link
-Text-styled button that looks like a hyperlink.
+// ### Secondary
+// Subtle button with a light background, useful for tertiary actions.
 
-\`\`\`tsx
-<Button variant="link">Link Button</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button variant="secondary">Secondary</Button>
+// \`\`\`
 
-### Destructive
-Red button for dangerous actions like delete or remove.
+// ### Ghost
+// Minimal button with only text, best for less prominent actions.
 
-\`\`\`tsx
-<Button variant="destructive">Delete</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button variant="ghost">Ghost Button</Button>
+// \`\`\`
 
-## Sizes
+// ### Link
+// Text-styled button that looks like a hyperlink.
 
-Choose from 4 different sizes:
+// \`\`\`tsx
+// <Button variant="link">Link Button</Button>
+// \`\`\`
 
-- **default**: \`h-9 px-4 py-2\` - Standard button size
-- **sm**: \`h-8 px-3 text-xs\` - Compact button for dense layouts
-- **lg**: \`h-10 px-8\` - Large button for prominent actions
-- **icon**: \`h-9 w-9\` - Square button for icon-only actions
+// ### Destructive
+// Red button for dangerous actions like delete or remove.
 
-\`\`\`tsx
-<Button size="sm">Small</Button>
-<Button size="default">Default</Button>
-<Button size="lg">Large</Button>
-<Button size="icon">
-  <ArrowDownIcon />
-</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button variant="destructive">Delete</Button>
+// \`\`\`
 
-## Colors
+// ## Sizes
 
-The Button component supports all 22 Tailwind colors with full dark mode support:
+// Choose from 4 different sizes:
 
-**Available colors**: slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
+// - **default**: \`h-9 px-4 py-2\` - Standard button size
+// - **sm**: \`h-8 px-3 text-xs\` - Compact button for dense layouts
+// - **lg**: \`h-10 px-8\` - Large button for prominent actions
+// - **icon**: \`h-9 w-9\` - Square button for icon-only actions
 
-\`\`\`tsx
-<Button color="blue">Blue Button</Button>
-<Button color="green">Green Button</Button>
-<Button color="red">Red Button</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button size="sm">Small</Button>
+// <Button size="default">Default</Button>
+// <Button size="lg">Large</Button>
+// <Button size="icon">
+//   <ArrowDownIcon />
+// </Button>
+// \`\`\`
 
-Colors work with all variants:
+// ## Colors
 
-\`\`\`tsx
-<Button color="blue" variant="outline">Blue Outline</Button>
-<Button color="green" variant="ghost">Green Ghost</Button>
-\`\`\`
+// The Button component supports all 22 Tailwind colors with full dark mode support:
 
-## Rounded Buttons
+// **Available colors**: slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
 
-Create pill-shaped buttons with the \`rounded\` prop:
+// \`\`\`tsx
+// <Button color="blue">Blue Button</Button>
+// <Button color="green">Green Button</Button>
+// <Button color="red">Red Button</Button>
+// \`\`\`
 
-\`\`\`tsx
-<Button rounded>Rounded Button</Button>
-<Button rounded variant="outline">Rounded Outline</Button>
-\`\`\`
+// Colors work with all variants:
 
-## Icon Buttons
+// \`\`\`tsx
+// <Button color="blue" variant="outline">Blue Outline</Button>
+// <Button color="green" variant="ghost">Green Ghost</Button>
+// \`\`\`
 
-Use the icon size for button-only icons:
+// ## Rounded Buttons
 
-\`\`\`tsx
-import { ArrowDownIcon } from "@/stories/assets/ArrowDownIcon";
+// Create pill-shaped buttons with the \`rounded\` prop:
 
-<Button size="icon">
-  <ArrowDownIcon />
-</Button>
-\`\`\`
+// \`\`\`tsx
+// <Button rounded>Rounded Button</Button>
+// <Button rounded variant="outline">Rounded Outline</Button>
+// \`\`\`
 
-## Disabled State
+// ## Icon Buttons
 
-Use the standard \`disabled\` attribute:
+// Use the icon size for button-only icons:
 
-\`\`\`tsx
-<Button disabled>Disabled Button</Button>
-<Button disabled variant="destructive">Disabled Delete</Button>
-\`\`\`
+// \`\`\`tsx
+// import { ArrowDownIcon } from "@/stories/assets/ArrowDownIcon";
 
-## asChild Prop
+// <Button size="icon">
+//   <ArrowDownIcon />
+// </Button>
+// \`\`\`
 
-The \`asChild\` prop allows you to apply button styles to any element without wrapping:
+// ## Disabled State
 
-\`\`\`tsx
-<Button asChild>
-  <a href="/page">Navigate to Page</a>
-</Button>
-\`\`\`
+// Use the standard \`disabled\` attribute:
 
-This is useful for semantic HTML, especially when you need an anchor tag for navigation but want it styled as a button.
+// \`\`\`tsx
+// <Button disabled>Disabled Button</Button>
+// <Button disabled variant="destructive">Disabled Delete</Button>
+// \`\`\`
 
-## Using buttonVariants
+// ## asChild Prop
 
-You can also use the \`buttonVariants\` CVA function directly to apply button styles to other elements:
+// The \`asChild\` prop allows you to apply button styles to any element without wrapping:
 
-\`\`\`tsx
-import { buttonVariants } from "@/components/ui/button";
+// \`\`\`tsx
+// <Button asChild>
+//   <a href="/page">Navigate to Page</a>
+// </Button>
+// \`\`\`
 
-export function MyComponent() {
-  return (
-    <a 
-      href="/page" 
-      className={buttonVariants({ variant: "outline", size: "lg" })}
-    >
-      Link styled as button
-    </a>
-  );
-}
-\`\`\`
+// This is useful for semantic HTML, especially when you need an anchor tag for navigation but want it styled as a button.
 
-## TypeScript
+// ## Using buttonVariants
 
-### ButtonProps Interface
+// You can also use the \`buttonVariants\` CVA function directly to apply button styles to other elements:
 
-\`\`\`tsx
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-  color?: ColorType;
-  rounded?: boolean;
-}
+// \`\`\`tsx
+// import { buttonVariants } from "@/components/ui/button";
 
-type ColorType =
-  | "slate" | "gray" | "zinc" | "neutral" | "stone"
-  | "red" | "orange" | "amber" | "yellow" | "lime"
-  | "green" | "emerald" | "teal" | "cyan" | "sky"
-  | "blue" | "indigo" | "violet" | "purple" | "fuchsia"
-  | "pink" | "rose";
-\`\`\`
+// export function MyComponent() {
+//   return (
+//     <a
+//       href="/page"
+//       className={buttonVariants({ variant: "outline", size: "lg" })}
+//     >
+//       Link styled as button
+//     </a>
+//   );
+// }
+// \`\`\`
 
-## Accessibility
+// ## TypeScript
 
-- Buttons use semantic \`<button>\` elements by default
-- Support for \`disabled\` state with proper styling and \`pointer-events-none\`
-- Focus-visible ring for keyboard navigation
-- Full color contrast in both light and dark modes
-- SVG icons inside buttons scale appropriately with \`[&_svg]:size-4\`
+// ### ButtonProps Interface
 
-## Dark Mode
+// \`\`\`tsx
+// interface ButtonProps
+//   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+//     VariantProps<typeof buttonVariants> {
+//   asChild?: boolean;
+//   color?: ColorType;
+//   rounded?: boolean;
+// }
 
-All colors and variants automatically support dark mode through Tailwind's \`dark:\` prefix:
+// type ColorType =
+//   | "slate" | "gray" | "zinc" | "neutral" | "stone"
+//   | "red" | "orange" | "amber" | "yellow" | "lime"
+//   | "green" | "emerald" | "teal" | "cyan" | "sky"
+//   | "blue" | "indigo" | "violet" | "purple" | "fuchsia"
+//   | "pink" | "rose";
+// \`\`\`
 
-\`\`\`tsx
-// Automatically handles light and dark themes
-<Button color="blue">Works in both themes</Button>
-\`\`\`
-        `}
-      </Description>
+// ## Accessibility
 
-      <Stories />
-    </>
-  );
-};
+// - Buttons use semantic \`<button>\` elements by default
+// - Support for \`disabled\` state with proper styling and \`pointer-events-none\`
+// - Focus-visible ring for keyboard navigation
+// - Full color contrast in both light and dark modes
+// - SVG icons inside buttons scale appropriately with \`[&_svg]:size-4\`
+
+// ## Dark Mode
+
+// All colors and variants automatically support dark mode through Tailwind's \`dark:\` prefix:
+
+// \`\`\`tsx
+// // Automatically handles light and dark themes
+// <Button color="blue">Works in both themes</Button>
+// \`\`\`
+//         `}
+//       </div>
+//     </>
+//   );
+// };
