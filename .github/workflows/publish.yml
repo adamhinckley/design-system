@@ -3,7 +3,11 @@ name: Publish to npm
 on:
   workflow_dispatch:
     inputs:
-      tag:
+      git_tag:
+        description: "Git tag to publish (e.g., v1.0.0)"
+        required: true
+        type: string
+      npm_tag:
         description: "npm tag (latest, next, beta, alpha, etc.)"
         required: true
         default: "latest"
@@ -14,11 +18,6 @@ on:
           - beta
           - alpha
           - canary
-      version:
-        description: "Version bump type (patch, minor, major, or specific version like 1.2.3)"
-        required: true
-        default: "patch"
-        type: string
 
 jobs:
   publish:
@@ -28,11 +27,11 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout code
+      - name: Checkout code at tag
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.inputs.git_tag }}
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -48,23 +47,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Bump version
+      - name: Extract version
         id: version
         run: |
-          if [[ "${{ github.event.inputs.version }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
-            # Specific version provided
-            pnpm version ${{ github.event.inputs.version }} --no-git-tag-version
-          else
-            # Version bump type provided (patch, minor, major)
-            pnpm version ${{ github.event.inputs.version }} --no-git-tag-version
-          fi
-          NEW_VERSION=$(node -p "require('./package.json').version")
-          echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
       - name: Build package
         run: pnpm run build:lib
@@ -72,19 +59,8 @@ jobs:
       - name: Verify types
         run: pnpm run verify:types
 
-      - name: Commit version bump
-        run: |
-          git add package.json
-          git commit -m "chore: bump version to ${{ steps.version.outputs.new_version }}"
-          git tag "v${{ steps.version.outputs.new_version }}"
-
-      - name: Push changes
-        run: |
-          git push origin main
-          git push origin "v${{ steps.version.outputs.new_version }}"
-
       - name: Publish to npm
-        run: npm publish --tag ${{ github.event.inputs.tag }} --provenance
+        run: npm publish --tag ${{ github.event.inputs.npm_tag }} --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -93,11 +69,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.version.outputs.new_version }}
-          release_name: Release v${{ steps.version.outputs.new_version }}
+          tag_name: ${{ github.event.inputs.git_tag }}
+          release_name: Release ${{ github.event.inputs.git_tag }}
           body: |
-            Published to npm with tag: `${{ github.event.inputs.tag }}`
+            Published to npm with tag: `${{ github.event.inputs.npm_tag }}`
 
-            Install with: `npm install @adamhinckley/design-system@${{ github.event.inputs.tag }}`
+            Install with: `npm install @adamhinckley/design-system@${{ github.event.inputs.npm_tag }}`
+
+            Version: `${{ steps.version.outputs.version }}`
           draft: false
-          prerelease: ${{ github.event.inputs.tag != 'latest' }}
+          prerelease: ${{ github.event.inputs.npm_tag != 'latest' }}
