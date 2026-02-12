@@ -6,6 +6,10 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "readme": "./README.npm.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamhinckley/design-system"
+  },
   "files": [
     "dist",
     "README.npm.md"
