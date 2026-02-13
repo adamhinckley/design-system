@@ -5,10 +5,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "readme": "./README.npm.md",
+  "readme": "./README.md",
   "files": [
-    "dist",
-    "README.npm.md"
+    "dist"
   ],
   "sideEffects": [
     "**/*.css"

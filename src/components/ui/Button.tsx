@@ -331,7 +331,9 @@ export interface ButtonProps
   fullWidth?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+type ButtonElement = HTMLButtonElement;
+
+const Button = React.forwardRef<ButtonElement, ButtonProps>(
   (
     {
       className,
@@ -341,14 +343,24 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       color = "slate",
       rounded = false,
       fullWidth = false,
+      type,
       ...props
     },
     ref,
   ) => {
     const Comp = asChild ? Slot : "button";
+    const resolvedType = asChild ? type : (type ?? "button");
+    const resolvedRef = asChild ? undefined : ref;
     const colorVariant =
       colorClasses[color]?.[variant as keyof typeof colorClasses.slate] ||
       colorClasses.slate[variant as keyof typeof colorClasses.slate];
+
+    if (ref && asChild) {
+      console.warn(
+        "The 'ref' prop is not forwarded when 'asChild' is true. Please use the 'ref' prop on the child component instead.",
+      );
+    }
+
     return (
       <Comp
         className={cn(
@@ -359,7 +371,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           fullWidth ? "w-full" : "w-fit self-start justify-self-start",
           className,
         )}
-        ref={ref}
+        type={resolvedType}
+        ref={resolvedRef}
         {...props}
       />
     );

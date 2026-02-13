@@ -35,7 +35,7 @@ yarn add @adamhinckley/design-system
 
 Add the design system styles to your global css file:
 
-```ts
+```tsx
 @import "@adamhinckley/design-system/styles.css";
 @import "tailwindcss";
 ```
