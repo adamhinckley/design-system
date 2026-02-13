@@ -53,6 +53,15 @@ export default defineConfig(({ mode }) => {
       projects: [
         {
           extends: true,
+          test: {
+            name: "unit",
+            environment: "jsdom",
+            setupFiles: ["./vitest.setup.ts"],
+            include: ["src/**/*.test.tsx"],
+          },
+        },
+        {
+          extends: true,
           plugins: [
             storybookTest({
               configDir: path.join(dirname, ".storybook"),
