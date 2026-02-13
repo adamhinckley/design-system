@@ -136,6 +136,24 @@ The Button component supports all 22 Tailwind colors with full dark mode support
 <Button color="red">Red</Button>
 ```
 
+### Dark Mode Colors
+
+All colors and sizes automatically support dark mode through Tailwind's `dark:` classes on a parent element:
+
+<Canvas of={ButtonStories.DarkModeColorVariants} sourceState="none" />
+<Source
+  language="tsx"
+  code={`<div className="dark rounded-xl bg-slate-900 p-6">
+  <Button color="sky">Sky</Button>
+  <Button color="emerald" variant="outline">
+    Emerald
+  </Button>
+  <Button color="rose" variant="ghost">
+    Rose
+  </Button>
+</div>`}
+/>
+
 ## Rounded Buttons
 
 Create pill-shaped buttons with the `rounded` prop:
@@ -170,34 +188,3 @@ The `asChild` prop allows you to apply button styles to any element without wrap
   <a href="/page">Navigate to Page</a>
 </Button>
 ```
-
-## Dark Mode
-
-All colors and variants automatically support dark mode through Tailwind's `dark:` classes on a parent element:
-
-<Canvas of={ButtonStories.DarkModeExample} sourceState="none" />
-<Source
-  language="tsx"
-  code={`<div className="dark rounded-xl bg-slate-900 p-6">
-  <div className="flex flex-wrap gap-3">
-    <div>
-      <Button variant="default">Primary</Button>
-    </div>
-    <div>
-      <Button variant="secondary">Secondary</Button>
-    </div>
-    <div>
-      <Button variant="outline">Outline</Button>
-    </div>
-    <div>
-      <Button variant="destructive">Destructive</Button>
-    </div>
-    <div>
-      <Button variant="ghost">Ghost</Button>
-    </div>
-    <div>
-      <Button variant="link">Link</Button>
-    </div>
-  </div>
-</div>`}
-/>

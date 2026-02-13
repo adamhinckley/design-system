@@ -60,7 +60,7 @@ const createIcon = (pathData: string, colorClass: string) => (
 );
 
 const PasswordField = ({
-  showVisibilityToggle,
+  showVisibilityToggle = true,
   color = "slate",
   ...props
 }: PasswordFieldProps) => {

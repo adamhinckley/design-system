@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const colorClasses = {
   slate: {
     default:
-      "bg-slate-600 text-white hover:bg-slate-700 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-500",
+      "bg-slate-700 text-white hover:bg-slate-800 focus-visible:ring-slate-500 dark:focus-visible:ring-slate-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -20,7 +20,7 @@ const colorClasses = {
   },
   gray: {
     default:
-      "bg-gray-600 text-white hover:bg-gray-700 focus-visible:ring-gray-400 dark:focus-visible:ring-gray-500",
+      "bg-gray-700 text-white hover:bg-gray-800 focus-visible:ring-gray-500 dark:focus-visible:ring-gray-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -33,7 +33,7 @@ const colorClasses = {
   },
   zinc: {
     default:
-      "bg-zinc-600 text-white hover:bg-zinc-700 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-500",
+      "bg-zinc-700 text-white hover:bg-zinc-800 focus-visible:ring-zinc-500 dark:focus-visible:ring-zinc-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -46,7 +46,7 @@ const colorClasses = {
   },
   neutral: {
     default:
-      "bg-neutral-600 text-white hover:bg-neutral-700 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-500",
+      "bg-neutral-700 text-white hover:bg-neutral-800 focus-visible:ring-neutral-500 dark:focus-visible:ring-neutral-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -59,7 +59,7 @@ const colorClasses = {
   },
   stone: {
     default:
-      "bg-stone-600 text-white hover:bg-stone-700 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-500",
+      "bg-stone-700 text-white hover:bg-stone-800 focus-visible:ring-stone-500 dark:focus-visible:ring-stone-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -72,7 +72,7 @@ const colorClasses = {
   },
   red: {
     default:
-      "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
+      "bg-red-700 text-white hover:bg-red-800 focus-visible:ring-red-500 dark:focus-visible:ring-red-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -85,7 +85,7 @@ const colorClasses = {
   },
   orange: {
     default:
-      "bg-orange-600 text-white hover:bg-orange-700 focus-visible:ring-orange-400 dark:focus-visible:ring-orange-500",
+      "bg-orange-700 text-white hover:bg-orange-800 focus-visible:ring-orange-500 dark:focus-visible:ring-orange-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -94,11 +94,11 @@ const colorClasses = {
       "bg-orange-100 dark:bg-orange-800 text-orange-900 dark:text-orange-100 hover:bg-orange-200 dark:hover:bg-orange-700 focus-visible:ring-orange-400 dark:focus-visible:ring-orange-500",
     ghost:
       "text-orange-900 dark:text-orange-100 hover:bg-orange-100 dark:hover:bg-orange-800 focus-visible:ring-orange-400 dark:focus-visible:ring-orange-500",
-    link: "text-orange-600 dark:text-orange-400 underline-offset-4 hover:underline focus-visible:ring-orange-400 dark:focus-visible:ring-orange-500",
+    link: "text-orange-700 dark:text-orange-300 underline-offset-4 hover:underline focus-visible:ring-orange-500 dark:focus-visible:ring-orange-500",
   },
   amber: {
     default:
-      "bg-amber-600 text-white hover:bg-amber-700 focus-visible:ring-amber-400 dark:focus-visible:ring-amber-500",
+      "bg-amber-700 text-white hover:bg-amber-800 focus-visible:ring-amber-500 dark:focus-visible:ring-amber-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -107,11 +107,11 @@ const colorClasses = {
       "bg-amber-100 dark:bg-amber-800 text-amber-900 dark:text-amber-100 hover:bg-amber-200 dark:hover:bg-amber-700 focus-visible:ring-amber-400 dark:focus-visible:ring-amber-500",
     ghost:
       "text-amber-900 dark:text-amber-100 hover:bg-amber-100 dark:hover:bg-amber-800 focus-visible:ring-amber-400 dark:focus-visible:ring-amber-500",
-    link: "text-amber-600 dark:text-amber-400 underline-offset-4 hover:underline focus-visible:ring-amber-400 dark:focus-visible:ring-amber-500",
+    link: "text-amber-700 dark:text-amber-300 underline-offset-4 hover:underline focus-visible:ring-amber-500 dark:focus-visible:ring-amber-500",
   },
   yellow: {
     default:
-      "bg-yellow-600 text-white hover:bg-yellow-700 focus-visible:ring-yellow-400 dark:focus-visible:ring-yellow-500",
+      "bg-yellow-700 text-white hover:bg-yellow-800 focus-visible:ring-yellow-500 dark:focus-visible:ring-yellow-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -120,11 +120,11 @@ const colorClasses = {
       "bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-yellow-100 hover:bg-yellow-200 dark:hover:bg-yellow-700 focus-visible:ring-yellow-400 dark:focus-visible:ring-yellow-500",
     ghost:
       "text-yellow-900 dark:text-yellow-100 hover:bg-yellow-100 dark:hover:bg-yellow-800 focus-visible:ring-yellow-400 dark:focus-visible:ring-yellow-500",
-    link: "text-yellow-600 dark:text-yellow-400 underline-offset-4 hover:underline focus-visible:ring-yellow-400 dark:focus-visible:ring-yellow-500",
+    link: "text-yellow-700 dark:text-yellow-300 underline-offset-4 hover:underline focus-visible:ring-yellow-500 dark:focus-visible:ring-yellow-500",
   },
   lime: {
     default:
-      "bg-lime-600 text-white hover:bg-lime-700 focus-visible:ring-lime-400 dark:focus-visible:ring-lime-500",
+      "bg-lime-700 text-white hover:bg-lime-800 focus-visible:ring-lime-500 dark:focus-visible:ring-lime-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -133,11 +133,11 @@ const colorClasses = {
       "bg-lime-100 dark:bg-lime-800 text-lime-900 dark:text-lime-100 hover:bg-lime-200 dark:hover:bg-lime-700 focus-visible:ring-lime-400 dark:focus-visible:ring-lime-500",
     ghost:
       "text-lime-900 dark:text-lime-100 hover:bg-lime-100 dark:hover:bg-lime-800 focus-visible:ring-lime-400 dark:focus-visible:ring-lime-500",
-    link: "text-lime-600 dark:text-lime-400 underline-offset-4 hover:underline focus-visible:ring-lime-400 dark:focus-visible:ring-lime-500",
+    link: "text-lime-700 dark:text-lime-300 underline-offset-4 hover:underline focus-visible:ring-lime-500 dark:focus-visible:ring-lime-500",
   },
   green: {
     default:
-      "bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-400 dark:focus-visible:ring-green-500",
+      "bg-green-700 text-white hover:bg-green-800 focus-visible:ring-green-500 dark:focus-visible:ring-green-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -146,11 +146,11 @@ const colorClasses = {
       "bg-green-100 dark:bg-green-800 text-green-900 dark:text-green-100 hover:bg-green-200 dark:hover:bg-green-700 focus-visible:ring-green-400 dark:focus-visible:ring-green-500",
     ghost:
       "text-green-900 dark:text-green-100 hover:bg-green-100 dark:hover:bg-green-800 focus-visible:ring-green-400 dark:focus-visible:ring-green-500",
-    link: "text-green-600 dark:text-green-400 underline-offset-4 hover:underline focus-visible:ring-green-400 dark:focus-visible:ring-green-500",
+    link: "text-green-700 dark:text-green-300 underline-offset-4 hover:underline focus-visible:ring-green-500 dark:focus-visible:ring-green-500",
   },
   emerald: {
     default:
-      "bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:ring-emerald-400 dark:focus-visible:ring-emerald-500",
+      "bg-emerald-700 text-white hover:bg-emerald-800 focus-visible:ring-emerald-500 dark:focus-visible:ring-emerald-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -159,11 +159,11 @@ const colorClasses = {
       "bg-emerald-100 dark:bg-emerald-800 text-emerald-900 dark:text-emerald-100 hover:bg-emerald-200 dark:hover:bg-emerald-700 focus-visible:ring-emerald-400 dark:focus-visible:ring-emerald-500",
     ghost:
       "text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100 dark:hover:bg-emerald-800 focus-visible:ring-emerald-400 dark:focus-visible:ring-emerald-500",
-    link: "text-emerald-600 dark:text-emerald-400 underline-offset-4 hover:underline focus-visible:ring-emerald-400 dark:focus-visible:ring-emerald-500",
+    link: "text-emerald-700 dark:text-emerald-300 underline-offset-4 hover:underline focus-visible:ring-emerald-500 dark:focus-visible:ring-emerald-500",
   },
   teal: {
     default:
-      "bg-teal-600 text-white hover:bg-teal-700 focus-visible:ring-teal-400 dark:focus-visible:ring-teal-500",
+      "bg-teal-700 text-white hover:bg-teal-800 focus-visible:ring-teal-500 dark:focus-visible:ring-teal-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -172,11 +172,11 @@ const colorClasses = {
       "bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-100 hover:bg-teal-200 dark:hover:bg-teal-700 focus-visible:ring-teal-400 dark:focus-visible:ring-teal-500",
     ghost:
       "text-teal-900 dark:text-teal-100 hover:bg-teal-100 dark:hover:bg-teal-800 focus-visible:ring-teal-400 dark:focus-visible:ring-teal-500",
-    link: "text-teal-600 dark:text-teal-400 underline-offset-4 hover:underline focus-visible:ring-teal-400 dark:focus-visible:ring-teal-500",
+    link: "text-teal-700 dark:text-teal-300 underline-offset-4 hover:underline focus-visible:ring-teal-500 dark:focus-visible:ring-teal-500",
   },
   cyan: {
     default:
-      "bg-cyan-600 text-white hover:bg-cyan-700 focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-500",
+      "bg-cyan-700 text-white hover:bg-cyan-800 focus-visible:ring-cyan-500 dark:focus-visible:ring-cyan-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -185,11 +185,11 @@ const colorClasses = {
       "bg-cyan-100 dark:bg-cyan-800 text-cyan-900 dark:text-cyan-100 hover:bg-cyan-200 dark:hover:bg-cyan-700 focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-500",
     ghost:
       "text-cyan-900 dark:text-cyan-100 hover:bg-cyan-100 dark:hover:bg-cyan-800 focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-500",
-    link: "text-cyan-600 dark:text-cyan-400 underline-offset-4 hover:underline focus-visible:ring-cyan-400 dark:focus-visible:ring-cyan-500",
+    link: "text-cyan-700 dark:text-cyan-300 underline-offset-4 hover:underline focus-visible:ring-cyan-500 dark:focus-visible:ring-cyan-500",
   },
   sky: {
     default:
-      "bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-400 dark:focus-visible:ring-sky-500",
+      "bg-sky-700 text-white hover:bg-sky-800 focus-visible:ring-sky-500 dark:focus-visible:ring-sky-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -198,11 +198,11 @@ const colorClasses = {
       "bg-sky-100 dark:bg-sky-800 text-sky-900 dark:text-sky-100 hover:bg-sky-200 dark:hover:bg-sky-700 focus-visible:ring-sky-400 dark:focus-visible:ring-sky-500",
     ghost:
       "text-sky-900 dark:text-sky-100 hover:bg-sky-100 dark:hover:bg-sky-800 focus-visible:ring-sky-400 dark:focus-visible:ring-sky-500",
-    link: "text-sky-600 dark:text-sky-400 underline-offset-4 hover:underline focus-visible:ring-sky-400 dark:focus-visible:ring-sky-500",
+    link: "text-sky-700 dark:text-sky-300 underline-offset-4 hover:underline focus-visible:ring-sky-500 dark:focus-visible:ring-sky-500",
   },
   blue: {
     default:
-      "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-400 dark:focus-visible:ring-blue-500",
+      "bg-blue-700 text-white hover:bg-blue-800 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -215,7 +215,7 @@ const colorClasses = {
   },
   indigo: {
     default:
-      "bg-indigo-600 text-white hover:bg-indigo-700 focus-visible:ring-indigo-400 dark:focus-visible:ring-indigo-500",
+      "bg-indigo-700 text-white hover:bg-indigo-800 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -228,7 +228,7 @@ const colorClasses = {
   },
   violet: {
     default:
-      "bg-violet-600 text-white hover:bg-violet-700 focus-visible:ring-violet-400 dark:focus-visible:ring-violet-500",
+      "bg-violet-700 text-white hover:bg-violet-800 focus-visible:ring-violet-500 dark:focus-visible:ring-violet-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -241,7 +241,7 @@ const colorClasses = {
   },
   purple: {
     default:
-      "bg-purple-600 text-white hover:bg-purple-700 focus-visible:ring-purple-400 dark:focus-visible:ring-purple-500",
+      "bg-purple-700 text-white hover:bg-purple-800 focus-visible:ring-purple-500 dark:focus-visible:ring-purple-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -254,7 +254,7 @@ const colorClasses = {
   },
   fuchsia: {
     default:
-      "bg-fuchsia-600 text-white hover:bg-fuchsia-700 focus-visible:ring-fuchsia-400 dark:focus-visible:ring-fuchsia-500",
+      "bg-fuchsia-700 text-white hover:bg-fuchsia-800 focus-visible:ring-fuchsia-500 dark:focus-visible:ring-fuchsia-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -267,7 +267,7 @@ const colorClasses = {
   },
   pink: {
     default:
-      "bg-pink-600 text-white hover:bg-pink-700 focus-visible:ring-pink-400 dark:focus-visible:ring-pink-500",
+      "bg-pink-700 text-white hover:bg-pink-800 focus-visible:ring-pink-500 dark:focus-visible:ring-pink-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
@@ -280,7 +280,7 @@ const colorClasses = {
   },
   rose: {
     default:
-      "bg-rose-600 text-white hover:bg-rose-700 focus-visible:ring-rose-400 dark:focus-visible:ring-rose-500",
+      "bg-rose-700 text-white hover:bg-rose-800 focus-visible:ring-rose-500 dark:focus-visible:ring-rose-500",
     destructive:
       "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400 dark:focus-visible:ring-red-500",
     outline:
