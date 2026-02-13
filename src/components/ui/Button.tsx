@@ -371,7 +371,6 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
           fullWidth ? "w-full" : "w-fit self-start justify-self-start",
           className,
         )}
-        // name={props.name || props["aria-label"] || undefined}
         type={resolvedType}
         ref={resolvedRef}
         {...props}
