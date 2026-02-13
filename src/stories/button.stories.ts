@@ -274,14 +274,11 @@ export const ColorVariants: Story = {
       React.createElement(
         "div",
         { className: "flex flex-wrap gap-2" },
-        COLORS.map((color) =>
-          React.createElement(Button, {
-            key: `destructive-${color}`,
-            color,
-            variant: "destructive",
-            children: color,
-          }),
-        ),
+        React.createElement(Button, {
+          key: "destructive",
+          variant: "destructive",
+          children: "destructive",
+        }),
       ),
     );
   },
