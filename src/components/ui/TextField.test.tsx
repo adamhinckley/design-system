@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import TextField from "./TextField";
 
 describe("TextField", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it("renders a label linked to the input", async () => {
     const user = userEvent.setup();
     render(<TextField label="Email" />);
@@ -31,8 +35,6 @@ describe("TextField", () => {
       "aria-describedby",
       helper.getAttribute("id"),
     );
-
-    cleanup();
   });
 
   it("prioritizes error text over helper text", () => {
@@ -53,8 +55,6 @@ describe("TextField", () => {
     expect(label).toHaveClass("text-destructive");
     expect(input).toHaveClass("border-destructive");
     expect(error).toHaveClass("text-destructive");
-
-    cleanup();
   });
 
   it("renders helper text when errorText is an empty string", () => {
