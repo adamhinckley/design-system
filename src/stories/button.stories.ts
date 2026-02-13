@@ -38,7 +38,6 @@ const VARIANTS = [
   "ghost",
   "link",
 ] as const;
-const SIZES = ["default", "sm", "lg", "icon"] as const;
 
 const meta = {
   title: "UI/Button",

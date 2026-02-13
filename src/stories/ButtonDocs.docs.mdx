@@ -30,10 +30,7 @@ import { Button } from "../components/ui/Button";
 ### ButtonProps Interface
 
 ```tsx
-interface ButtonProps
-  extends
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?:
     | "default"
     | "secondary"
