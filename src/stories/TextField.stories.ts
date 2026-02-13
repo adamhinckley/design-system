@@ -37,21 +37,72 @@ const meta = {
   component: TextField,
   parameters: {
     layout: "centered",
-    controls: { disable: true },
   },
   argTypes: {
-    type: {
-      table: {
-        disable: true,
-      },
+    label: {
+      control: "text",
+      description: "Label text for the input field",
+    },
+    placeholder: {
+      control: "text",
+      description: "Placeholder text",
     },
     helperText: {
-      table: {
-        disable: true,
-      },
+      control: "text",
+      description: "Helper text displayed below the input",
+    },
+    errorText: {
+      control: "text",
+      description: "Error text (overrides helperText)",
+    },
+    color: {
+      control: "select",
+      options: COLORS,
+      description: "Color scheme for the input",
+    },
+    inputSize: {
+      control: "radio",
+      options: INPUT_SIZES,
+      description: "Size of the input field",
+    },
+    type: {
+      control: "select",
+      options: ["text", "email", "password", "number", "tel", "url", "search"],
+      description: "HTML input type",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Disable the input",
+    },
+    required: {
+      control: "boolean",
+      description: "Make the input required",
+    },
+    readOnly: {
+      control: "boolean",
+      description: "Make the input read-only",
+    },
+    fullWidth: {
+      control: "boolean",
+      description: "Make the input full width",
+    },
+    removeBackground: {
+      control: "boolean",
+      description: "Remove background color",
+    },
+    startAdornment: {
+      control: false,
+      description: "React node displayed at the start of the input",
+    },
+    endAdornment: {
+      control: false,
+      description: "React node displayed at the end of the input",
     },
   },
-  args: {},
+  args: {
+    label: "Label",
+    placeholder: "Enter text...",
+  },
   render: (args) => React.createElement(TextField, { ...args }),
 } satisfies Meta<typeof TextField>;
 
@@ -68,13 +119,20 @@ export const BasicUsageExample: Story = {
 };
 
 export const PlaceholderOnlyExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   args: {
     placeholder: "Search",
+    label: "",
     "aria-label": "Search",
   },
 };
 
 export const SizesExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
@@ -90,6 +148,13 @@ export const SizesExample: Story = {
 };
 
 export const AdornmentsExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  args: {
+    inputSize: "md",
+  },
+
   render: () =>
     React.createElement(
       "div",
@@ -140,6 +205,9 @@ export const AdornmentsExample: Story = {
 };
 
 export const HelperAndErrorExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
@@ -175,6 +243,9 @@ export const FullWidthExample: Story = {
 };
 
 export const RemoveBackgroundExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
@@ -196,6 +267,9 @@ export const PasswordWithToggle: PasswordStory = {
 };
 
 export const DisabledExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
@@ -213,6 +287,9 @@ export const DisabledExample: Story = {
 };
 
 export const ColorVariants: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
@@ -229,6 +306,9 @@ export const ColorVariants: Story = {
 };
 
 export const DarkModeExample: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () =>
     React.createElement(
       "div",
