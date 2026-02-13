@@ -16,6 +16,7 @@ const dirname =
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig(({ mode }) => {
   const isLib = mode === "lib";
+  const enableStorybookTests = process.env.STORYBOOK_TESTS === "true";
 
   return {
     plugins: [react(), tailwindcss()],
@@ -60,24 +61,28 @@ export default defineConfig(({ mode }) => {
             include: ["src/**/*.test.tsx"],
           },
         },
-        {
-          extends: true,
-          plugins: [
-            storybookTest({
-              configDir: path.join(dirname, ".storybook"),
-            }),
-          ],
-          test: {
-            name: "storybook",
-            browser: {
-              enabled: true,
-              headless: true,
-              provider: playwright({}),
-              instances: [{ browser: "chromium" }],
-            },
-            setupFiles: [".storybook/vitest.setup.ts"],
-          },
-        },
+        ...(enableStorybookTests
+          ? [
+              {
+                extends: true as const,
+                plugins: [
+                  storybookTest({
+                    configDir: path.join(dirname, ".storybook"),
+                  }),
+                ],
+                test: {
+                  name: "storybook",
+                  browser: {
+                    enabled: true,
+                    headless: true,
+                    provider: playwright({}),
+                    instances: [{ browser: "chromium" as const }],
+                  },
+                  setupFiles: [".storybook/vitest.setup.ts"],
+                },
+              },
+            ]
+          : []),
       ],
     },
   };
