@@ -32,9 +32,9 @@ const COLORS: ColorType[] = [
 
 const VARIANTS = [
   "default",
-  "destructive",
-  "outline",
   "secondary",
+  "outline",
+  "destructive",
   "ghost",
   "link",
 ] as const;
@@ -58,122 +58,98 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Default variant stories
-export const Default: Story = {
+export const BasicUsageExample: Story = {
   args: {
-    variant: "default",
-    children: "Default Button",
+    children: "Click me",
   },
 };
 
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-    children: "Delete",
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: "Outline Button",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    children: "Secondary",
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-    children: "Ghost Button",
-  },
-};
-
-export const Link: Story = {
-  args: {
-    variant: "link",
-    children: "Link Button",
-  },
-};
-
-// Size stories
-export const SmallSize: Story = {
-  args: {
-    size: "sm",
-    children: "Small",
-  },
-};
-
-export const LargeSize: Story = {
-  args: {
-    size: "lg",
-    children: "Large",
-  },
-};
-
-export const IconSize: Story = {
+export const VariantsExample: Story = {
   render: () =>
-    React.createElement(Button, {
-      size: "icon",
-      children: React.createElement(ArrowDownIcon),
-    }),
+    React.createElement(
+      "div",
+      { className: "flex flex-wrap gap-3" },
+      VARIANTS.map((variant) =>
+        React.createElement(Button, {
+          key: variant,
+          variant,
+          children:
+            variant === "default"
+              ? "Default"
+              : `${variant.slice(0, 1).toUpperCase()}${variant.slice(1)}`,
+        }),
+      ),
+    ),
 };
 
-// Disabled state
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: "Disabled Button",
-  },
+export const SizesExample: Story = {
+  render: () =>
+    React.createElement(
+      "div",
+      { className: "flex flex-wrap items-center gap-3" },
+      React.createElement(Button, { size: "sm", children: "Small" }),
+      React.createElement(Button, { size: "default", children: "Default" }),
+      React.createElement(Button, { size: "lg", children: "Large" }),
+      React.createElement(Button, {
+        size: "icon",
+        children: React.createElement(ArrowDownIcon),
+      }),
+    ),
 };
 
-// Rounded button
-export const Rounded: Story = {
-  args: {
-    rounded: true,
-    children: "Rounded Button",
-  },
+export const DisabledExample: Story = {
+  render: () =>
+    React.createElement(
+      "div",
+      { className: "flex flex-wrap gap-3" },
+      React.createElement(Button, { disabled: true, children: "Disabled" }),
+      React.createElement(Button, {
+        disabled: true,
+        variant: "destructive",
+        children: "Disabled Delete",
+      }),
+    ),
 };
 
-// asChild prop example
-export const AsChildLink: Story = {
+export const RoundedButtonsExample: Story = {
+  render: () =>
+    React.createElement(
+      "div",
+      { className: "flex flex-wrap gap-3" },
+      React.createElement(Button, { rounded: true, children: "Rounded" }),
+      React.createElement(Button, {
+        rounded: true,
+        variant: "outline",
+        children: "Rounded Outline",
+      }),
+    ),
+};
+
+export const AsChildExample: Story = {
   render: () =>
     React.createElement(Button, {
       asChild: true,
-      children: React.createElement("a", { href: "#" }, "Navigate to Page"),
+      children: React.createElement("a", { href: "/page" }, "Navigate to Page"),
     }),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "The `asChild` prop renders the button styles on a different element (like an anchor tag) without wrapper elements. Useful for semantic HTML.",
-      },
-    },
-  },
 };
 
-export const RoundedVariants: Story = {
-  render: () => {
-    return React.createElement(
+export const DarkModeExample: Story = {
+  render: () =>
+    React.createElement(
       "div",
-      { className: "space-y-4" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
+      { className: "dark rounded-xl bg-slate-900 p-6" },
+      React.createElement(
+        "div",
+        { className: "flex flex-wrap gap-3" },
+        VARIANTS.map((variant) =>
           React.createElement(Button, {
-            rounded: true,
+            key: `dark-${variant}`,
             variant,
-            children: `Rounded - ${variant}`,
+            children: variant === "default" ? "Primary" : variant,
           }),
         ),
       ),
-    );
-  },
+    ),
 };
 
 // Colors - Default Variant
@@ -305,123 +281,6 @@ export const ColorVariants: Story = {
             color,
             variant: "destructive",
             children: color,
-          }),
-        ),
-      ),
-    );
-  },
-};
-
-// All variants with size options
-export const AllVariantsWithSizes: Story = {
-  render: () => {
-    return React.createElement(
-      "div",
-      { className: "space-y-8" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
-          React.createElement(
-            "h3",
-            { className: "mb-3 text-base font-semibold capitalize" },
-            `${variant} Variant`,
-          ),
-          React.createElement(
-            "div",
-            { className: "flex flex-wrap items-center gap-2" },
-            SIZES.map((size) =>
-              React.createElement(Button, {
-                key: `${variant}-${size}`,
-                variant,
-                size,
-                children: size === "icon" ? "↓" : `${size}`,
-              }),
-            ),
-          ),
-        ),
-      ),
-    );
-  },
-};
-
-// Slate color with all variants (default color)
-export const SlateColorAllVariants: Story = {
-  render: () => {
-    return React.createElement(
-      "div",
-      { className: "space-y-4" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
-          React.createElement(Button, {
-            color: "slate",
-            variant,
-            children: `Slate - ${variant}`,
-          }),
-        ),
-      ),
-    );
-  },
-};
-
-// Blue color showcase (popular color)
-export const BlueColorAllVariants: Story = {
-  render: () => {
-    return React.createElement(
-      "div",
-      { className: "space-y-4" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
-          React.createElement(Button, {
-            color: "blue",
-            variant,
-            children: `Blue - ${variant}`,
-          }),
-        ),
-      ),
-    );
-  },
-};
-
-// Green color showcase (success-like color)
-export const GreenColorAllVariants: Story = {
-  render: () => {
-    return React.createElement(
-      "div",
-      { className: "space-y-4" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
-          React.createElement(Button, {
-            color: "green",
-            variant,
-            children: `Green - ${variant}`,
-          }),
-        ),
-      ),
-    );
-  },
-};
-
-// Red color showcase (error/danger color)
-export const RedColorAllVariants: Story = {
-  render: () => {
-    return React.createElement(
-      "div",
-      { className: "space-y-4" },
-      VARIANTS.map((variant) =>
-        React.createElement(
-          "div",
-          { key: variant },
-          React.createElement(Button, {
-            color: "red",
-            variant,
-            children: `Red - ${variant}`,
           }),
         ),
       ),
