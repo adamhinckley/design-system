@@ -283,3 +283,120 @@ export const ColorVariants: Story = {
     );
   },
 };
+
+export const DarkModeColorVariants: Story = {
+  render: () =>
+    React.createElement(
+      "div",
+      { className: "dark rounded-xl bg-slate-900 p-6" },
+      React.createElement(
+        "div",
+        { className: "space-y-4" },
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            { className: "mb-4 text-lg font-semibold text-slate-100" },
+            "Default Variant",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap gap-2" },
+          COLORS.map((color) =>
+            React.createElement(Button, {
+              key: `dark-default-${color}`,
+              color,
+              variant: "default",
+              children: color,
+            }),
+          ),
+        ),
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            { className: "mb-4 mt-8 text-lg font-semibold text-slate-100" },
+            "Outline Variant",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap gap-2" },
+          COLORS.map((color) =>
+            React.createElement(Button, {
+              key: `dark-outline-${color}`,
+              color,
+              variant: "outline",
+              children: color,
+            }),
+          ),
+        ),
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            { className: "mb-4 mt-8 text-lg font-semibold text-slate-100" },
+            "Secondary Variant",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap gap-2" },
+          COLORS.map((color) =>
+            React.createElement(Button, {
+              key: `dark-secondary-${color}`,
+              color,
+              variant: "secondary",
+              children: color,
+            }),
+          ),
+        ),
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            { className: "mb-4 mt-8 text-lg font-semibold text-slate-100" },
+            "Ghost Variant",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap gap-2" },
+          COLORS.map((color) =>
+            React.createElement(Button, {
+              key: `dark-ghost-${color}`,
+              color,
+              variant: "ghost",
+              children: color,
+            }),
+          ),
+        ),
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h2",
+            { className: "mb-4 mt-8 text-lg font-semibold text-slate-100" },
+            "Link Variant",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "flex flex-wrap gap-2" },
+          COLORS.map((color) =>
+            React.createElement(Button, {
+              key: `dark-link-${color}`,
+              color,
+              variant: "link",
+              children: color,
+            }),
+          ),
+        ),
+      ),
+    ),
+};
