@@ -5,14 +5,13 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "readme": "./README.npm.md",
+  "readme": "./README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/adamhinckley/design-system"
   },
   "files": [
-    "dist",
-    "README.npm.md"
+    "dist"
   ],
   "sideEffects": [
     "**/*.css"
@@ -32,15 +31,15 @@
     "build:lib": "vite build --mode lib && tsc -p tsconfig.build.json",
     "yalc:publish": "pnpm run build:lib && yalc publish --private",
     "yalc:push": "pnpm run build:lib && yalc push",
-    "verify:types": "node -e \"const fs=require('fs'); const files=['dist/index.d.ts','dist/components/TextField.d.ts']; const missing=files.filter(f=>!fs.existsSync(f)); if(missing.length){console.error('Missing types:', missing.join(', ')); process.exit(1);} console.log('Types OK');\"",
-    "prepublishOnly": "pnpm run build:lib && pnpm run verify:types && mv README.md README.github.md && mv README.npm.md README.md",
-    "postpublish": "mv README.md README.npm.md && mv README.github.md README.md",
+    "verify:types": "tsx scripts/verify-types.ts",
+    "prepublishOnly": "pnpm run build:lib && pnpm run verify:types",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
     "@tailwindcss/vite": "^4.1.18",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -77,6 +76,7 @@
     "storybook": "^10.2.7",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
+    "tsx": "^4.20.5",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
     "vitest": "^4.0.18",

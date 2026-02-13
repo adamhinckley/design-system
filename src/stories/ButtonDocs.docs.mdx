@@ -1,0 +1,203 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Canvas,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./button.stories";
+import { Button } from "../components/ui/Button";
+
+<Meta of={ButtonStories} />
+
+<Title>Button</Title>
+<Subtitle>
+  A versatile button component with support for multiple variants, sizes,
+  colors, and states.
+</Subtitle>
+
+## Features
+
+- **6 Variants**: default, destructive, outline, secondary, ghost, link
+- **4 Sizes**: default, sm, lg, icon
+- **22 Colors**: Full Tailwind color palette with dark mode support
+- **Rounded**: Pill-shaped buttons with the `rounded` prop
+- **asChild**: Apply button styles to any element
+- **Responsive**: Works seamlessly across all screen sizes
+
+## TypeScript
+
+### ButtonProps Interface
+
+```tsx
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?:
+    | "default"
+    | "secondary"
+    | "outline"
+    | "destructive"
+    | "ghost"
+    | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  asChild?: boolean;
+  color?: ColorType;
+  rounded?: boolean;
+  fullWidth?: boolean;
+}
+
+type ColorType =
+  | "slate"
+  | "gray"
+  | "zinc"
+  | "neutral"
+  | "stone"
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
+```
+
+## Accessibility
+
+- Buttons use semantic `<button>` elements by default
+- Support for `disabled` state with proper styling and `pointer-events-none`
+- Focus-visible ring for keyboard navigation
+- Full color contrast in both light and dark modes
+- SVG icons inside buttons scale appropriately with `[&_svg]:size-4`
+
+## Basic Usage
+
+<Canvas of={ButtonStories.BasicUsageExample} sourceState="none" />
+
+```tsx
+import { Button } from "@adamhinckley/design-system";
+
+export function MyComponent() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Variants
+
+The Button component supports 6 different variants, shown together below:
+
+<Canvas of={ButtonStories.VariantsExample} sourceState="none" />
+```tsx
+<Button>Default</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="destructive">Delete</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+```
+
+## Sizes
+
+Choose from 4 different sizes:
+
+- **default**: `h-9 px-4 py-2` - Standard button size
+- **sm**: `h-8 px-3 text-xs` - Compact button for dense layouts
+- **lg**: `h-10 px-8` - Large button for prominent actions
+- **icon**: `h-9 w-9` - Square button for icon-only actions
+
+<Canvas of={ButtonStories.SizesExample} sourceState="none" />
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon">
+  <ArrowDownIcon />
+</Button>
+```
+
+## Colors - default is slate
+
+The Button component supports all 22 Tailwind colors with full dark mode support on all non-destructive variants. The `destructive` variant is always styled red to clearly signal dangerous actions:
+
+**Available colors**: slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
+
+<Canvas of={ButtonStories.ColorVariants} sourceState="none" />
+```tsx
+<Button color="blue">Blue</Button>
+<Button color="green">Green</Button>
+<Button color="red">Red</Button>
+```
+
+## Rounded Buttons
+
+Create pill-shaped buttons with the `rounded` prop:
+
+<Canvas of={ButtonStories.RoundedButtonsExample} sourceState="none" />
+```tsx
+<Button rounded>Rounded Button</Button>
+<Button rounded variant="outline">
+  Rounded Outline
+</Button>
+```
+
+## Disabled State
+
+Use the standard `disabled` attribute:
+
+<Canvas of={ButtonStories.DisabledExample} sourceState="none" />
+```tsx
+<Button disabled>Disabled Button</Button>
+<Button disabled variant="destructive">
+  Disabled Delete
+</Button>
+```
+
+## asChild Prop
+
+The `asChild` prop allows you to apply button styles to any element without wrapping:
+
+<Canvas of={ButtonStories.AsChildExample} sourceState="none" />
+```tsx
+<Button asChild>
+  <a href="/page">Navigate to Page</a>
+</Button>
+```
+
+## Dark Mode
+
+All colors and variants automatically support dark mode through Tailwind's `dark:` classes on a parent element:
+
+<Canvas of={ButtonStories.DarkModeExample} sourceState="none" />
+<Source
+  language="tsx"
+  code={`<div className="dark rounded-xl bg-slate-900 p-6">
+  <div className="flex flex-wrap gap-3">
+    <div>
+      <Button variant="default">Primary</Button>
+    </div>
+    <div>
+      <Button variant="secondary">Secondary</Button>
+    </div>
+    <div>
+      <Button variant="outline">Outline</Button>
+    </div>
+    <div>
+      <Button variant="destructive">Destructive</Button>
+    </div>
+    <div>
+      <Button variant="ghost">Ghost</Button>
+    </div>
+    <div>
+      <Button variant="link">Link</Button>
+    </div>
+  </div>
+</div>`}
+/>
