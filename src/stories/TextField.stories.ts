@@ -124,6 +124,7 @@ export const PlaceholderOnlyExample: Story = {
   },
   args: {
     placeholder: "Search",
+    label: "",
     "aria-label": "Search",
   },
 };
@@ -257,9 +258,6 @@ export const RemoveBackgroundExample: Story = {
 };
 
 export const PasswordWithToggle: PasswordStory = {
-  parameters: {
-    controls: { disable: true },
-  },
   args: {
     label: "Password",
     showVisibilityToggle: true,
