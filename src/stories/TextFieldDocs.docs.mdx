@@ -1,0 +1,213 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Canvas,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as InputStories from "./TextField.stories";
+import TextField from "../components/ui/TextField";
+import PasswordField from "../components/ui/PasswordField";
+
+<Meta of={InputStories} />
+
+<Title>TextField</Title>
+<Subtitle>
+  A flexible input system with labels, helper text, adornments, full color
+  support, and an optional password visibility toggle.
+</Subtitle>
+
+## Features
+
+- **3 Sizes**: sm, md, lg
+- **22 Colors**: Full Tailwind palette with dark mode support
+- **Adornments**: Start and end adornments for icons or quick actions
+- **Helper + Error**: Mutually exclusive helper and error text
+- **Full Width**: Expand to container width
+- **Password**: Optional visibility toggle
+- **Transparent**: Remove background for overlay layouts
+
+## TypeScript
+
+### InputProps Interface
+
+```tsx
+interface InputProps extends React.ComponentProps<"input"> {
+  helperText?: string;
+  errorText?: string;
+  label?: string;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  startAdornment?: React.ReactNode;
+  endAdornment?: React.ReactNode;
+  color?: ColorType;
+  removeBackground?: boolean;
+  inputSize?: "sm" | "md" | "lg";
+}
+
+type PasswordFieldProps = Omit<InputProps, "type" | "endAdornment"> & {
+  showVisibilityToggle?: boolean;
+};
+
+type ColorType =
+  | "slate"
+  | "gray"
+  | "zinc"
+  | "neutral"
+  | "stone"
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
+```
+
+## Basic Usage
+
+<Canvas of={InputStories.BasicUsageExample} sourceState="none" />
+
+```tsx
+import { TextField } from "@adamhinckley/design-system";
+
+export function Example() {
+  return (
+    <TextField
+      type="email"
+      label="Email"
+      helperText="We will never share your email."
+    />
+  );
+}
+```
+
+## Placeholder Without Label
+
+Labels are optional. You can use a placeholder without a label:
+
+<Canvas of={InputStories.PlaceholderOnlyExample} sourceState="none" />
+
+```tsx
+<TextField placeholder="Search" />
+```
+
+## Sizes
+
+<Canvas of={InputStories.SizesExample} sourceState="none" />
+
+```tsx
+<TextField inputSize="sm" label="SM input" />
+<TextField inputSize="md" label="MD input" />
+<TextField inputSize="lg" label="LG input" />
+```
+
+## Adornments
+
+<Canvas of={InputStories.AdornmentsExample} sourceState="none" />
+
+```tsx
+<TextField
+  label="Username"
+  startAdornment={<span className="text-xs font-semibold">@</span>}
+/>
+<TextField
+  label="Amount"
+  endAdornment={<span className="text-xs font-semibold">USD</span>}
+/>
+```
+
+## Helper and Error Text
+
+<Canvas of={InputStories.HelperAndErrorExample} sourceState="none" />
+
+```tsx
+<TextField
+  label="Helper text"
+  helperText="Optional, but helps your teammates."
+/>
+<TextField
+  label="Error state"
+  errorText="Please enter a valid email address."
+/>
+```
+
+## Password Field
+
+<Canvas of={InputStories.PasswordWithToggle} sourceState="none" />
+
+```tsx
+<PasswordField
+  label="Password"
+  showVisibilityToggle
+  helperText="Click the eye icon to toggle visibility"
+/>
+```
+
+## Full Width
+
+<Canvas of={InputStories.FullWidthExample} sourceState="none" />
+
+```tsx
+<div className="mx-auto w-full max-w-4xl">
+  <TextField fullWidth label="Full width" />
+</div>
+```
+
+## Remove Background
+
+<Canvas of={InputStories.RemoveBackgroundExample} sourceState="none" />
+
+```tsx
+<TextField removeBackground label="Overlay input" />
+```
+
+## Disabled
+
+<Canvas of={InputStories.DisabledExample} sourceState="none" />
+
+```tsx
+<TextField disabled label="Disabled input" />
+```
+
+## Colors - default is slate
+
+**Available colors**: slate, gray, zinc, neutral, stone, red, orange, amber,
+yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple,
+fuchsia, pink, rose
+
+<Canvas of={InputStories.ColorVariants} sourceState="none" />
+
+```tsx
+<TextField color="blue" label="blue" />
+<TextField color="green" label="green" />
+<TextField color="red" label="red" />
+```
+
+## Dark Mode
+
+All colors and sizes automatically support dark mode through Tailwind's
+`dark:` classes on a parent element:
+
+<Canvas of={InputStories.DarkModeExample} sourceState="none" />
+
+<Source
+  language="tsx"
+  code={`<div className="dark rounded-xl bg-slate-950 p-6">
+  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <TextField label="slate" />
+    <TextField color="blue" label="blue" />
+    <TextField color="green" label="green" />
+  </div>
+</div>`}
+/>
