@@ -238,7 +238,7 @@ const variantStyles = {
  * ```tsx
  * <Typography variant="h1">Page Title</Typography>
  * <Typography variant="body1">Regular paragraph text.</Typography>
- * <Typography variant="caption" color="gray-500">
+ * <Typography variant="caption" color="gray">
  *   Small caption text
  * </Typography>
  * <Typography
