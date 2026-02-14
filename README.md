@@ -42,7 +42,8 @@ Add the design system styles to your global css file:
 
 ## Usage
 
-### Button
+<details>
+<summary><strong>Button</strong></summary>
 
 A versatile button component with multiple variants, sizes, and full color theme support.
 
@@ -144,7 +145,10 @@ import { Download } from "lucide-react";
 </Button>;
 ```
 
-### TextField
+</details>
+
+<details>
+<summary><strong>TextField</strong></summary>
 
 A customizable text input component with optional label, helper text, error text, and adornments.
 
@@ -226,7 +230,10 @@ import { Mail, Lock } from "lucide-react";
 />
 ```
 
-### PasswordField
+</details>
+
+<details>
+<summary><strong>PasswordField</strong></summary>
 
 A specialized text input component for password entry with built-in show/hide toggle.
 
@@ -250,7 +257,10 @@ Same as `TextField` - inherits all props and behaviors with a built-in visibilit
 />
 ```
 
-### Typography
+</details>
+
+<details>
+<summary><strong>Typography</strong></summary>
 
 A flexible typography component with comprehensive text styling options and Material-UI compatible variant API. Supports automatic dark mode color adaptation.
 
@@ -368,6 +378,8 @@ Truncation:
   This text will be clamped to exactly two lines
 </Typography>
 ```
+
+</details>
 
 ## Dark Mode
 
