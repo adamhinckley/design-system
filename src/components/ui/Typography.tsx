@@ -332,7 +332,7 @@ export function Typography({
 
         // Decoration
         decoration,
-        decorationColor,
+        decorationColor && `decoration-${decorationColor}`,
         decorationStyle && `decoration-${decorationStyle}`,
         decorationThickness && `decoration-${decorationThickness}`,
         underlineOffset && `underline-offset-${underlineOffset}`,
