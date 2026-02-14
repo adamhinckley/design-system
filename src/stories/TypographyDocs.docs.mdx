@@ -1,0 +1,394 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Canvas,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as TypographyStories from "./Typography.stories";
+
+<Meta of={TypographyStories} />
+
+<Title>Typography</Title>
+<Subtitle>
+  A flexible typography component with comprehensive Tailwind text utilities and
+  Material-UI compatible variant API.
+</Subtitle>
+
+## Features
+
+- **14 Variants**: h1-h6, subtitle1-2, body1-2, button, caption, overline, inherit
+- **MUI-Compatible API**: Familiar variant prop for easy migration
+- **22 Colors**: Full Tailwind palette with dark mode support
+- **Custom Elements**: Override default HTML element per variant
+- **Comprehensive Styling**: Font family, size, weight, spacing, alignment, decoration, transform
+- **Truncation**: Line clamp and text overflow utilities
+- **Typography Utilities**: Letter spacing, line height, text transform, word break, hyphens
+
+## Installation
+
+```bash
+npm install @adamhinckley/design-system
+```
+
+## TypeScript
+
+### TypographyProps Interface
+
+```tsx
+interface TypographyProps {
+  children: React.ReactNode;
+  className?: string;
+  variant?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "subtitle1"
+    | "subtitle2"
+    | "body1"
+    | "body2"
+    | "button"
+    | "caption"
+    | "overline"
+    | "inherit";
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+
+  // Font properties
+  fontFamily?: "sans" | "serif" | "mono";
+  size?:
+    | "xs"
+    | "sm"
+    | "base"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl"
+    | "8xl"
+    | "9xl";
+  weight?:
+    | "thin"
+    | "extralight"
+    | "light"
+    | "normal"
+    | "medium"
+    | "semibold"
+    | "bold"
+    | "extrabold"
+    | "black";
+  italic?: boolean;
+  smoothing?: "antialiased" | "subpixel-antialiased";
+  stretch?: "normal" | "condensed" | "expanded";
+  numericVariant?:
+    | "normal-nums"
+    | "ordinal"
+    | "slashed-zero"
+    | "lining-nums"
+    | "oldstyle-nums"
+    | "proportional-nums"
+    | "tabular-nums"
+    | "diagonal-fractions"
+    | "stacked-fractions";
+
+  // Spacing and layout
+  tracking?: "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
+  leading?:
+    | "none"
+    | "tight"
+    | "snug"
+    | "normal"
+    | "relaxed"
+    | "loose"
+    | "3"
+    | "4"
+    | "5"
+    | "6"
+    | "7"
+    | "8"
+    | "9"
+    | "10";
+  lineClamp?: "1" | "2" | "3" | "4" | "5" | "6" | "none";
+  indent?:
+    | "0"
+    | "px"
+    | "0.5"
+    | "1"
+    | "1.5"
+    | "2"
+    | "2.5"
+    | "3"
+    | "3.5"
+    | "4"
+    | "5"
+    | "6"
+    | "7"
+    | "8";
+
+  // Alignment
+  align?: "left" | "center" | "right" | "justify" | "start" | "end";
+  verticalAlign?:
+    | "baseline"
+    | "top"
+    | "middle"
+    | "bottom"
+    | "text-top"
+    | "text-bottom"
+    | "sub"
+    | "super";
+
+  // Color
+  color?:
+    | "slate"
+    | "gray"
+    | "zinc"
+    | "neutral"
+    | "stone"
+    | "red"
+    | "orange"
+    | "amber"
+    | "yellow"
+    | "lime"
+    | "green"
+    | "emerald"
+    | "teal"
+    | "cyan"
+    | "sky"
+    | "blue"
+    | "indigo"
+    | "violet"
+    | "purple"
+    | "fuchsia"
+    | "pink"
+    | "rose"; // Defaults to "slate"
+
+  // Decoration
+  decoration?: "underline" | "overline" | "line-through" | "no-underline";
+  decorationColor?: string;
+  decorationStyle?: "solid" | "double" | "dotted" | "dashed" | "wavy";
+  decorationThickness?: "auto" | "from-font" | "0" | "1" | "2" | "4" | "8";
+  underlineOffset?: "auto" | "0" | "1" | "2" | "4" | "8";
+
+  // Transform and overflow
+  transform?: "uppercase" | "lowercase" | "capitalize" | "normal-case";
+  overflow?: "truncate" | "ellipsis" | "clip";
+  wrap?: "wrap" | "nowrap" | "balance" | "pretty";
+  whitespace?:
+    | "normal"
+    | "nowrap"
+    | "pre"
+    | "pre-line"
+    | "pre-wrap"
+    | "break-spaces";
+  wordBreak?: "normal" | "words" | "all" | "keep";
+  overflowWrap?: "normal" | "break-word";
+  hyphens?: "none" | "manual" | "auto";
+}
+```
+
+## All Variants
+
+See all available typography variants with their default styles:
+
+<Canvas of={TypographyStories.AllVariants} sourceState="none" />
+
+```tsx
+import { Typography } from "@adamhinckley/design-system";
+
+export function Example() {
+  return (
+    <>
+      <Typography variant="h1">Heading 1</Typography>
+      <Typography variant="h2">Heading 2</Typography>
+      <Typography variant="h3">Heading 3</Typography>
+      <Typography variant="h4">Heading 4</Typography>
+      <Typography variant="h5">Heading 5</Typography>
+      <Typography variant="h6">Heading 6</Typography>
+      <Typography variant="subtitle1">Subtitle 1</Typography>
+      <Typography variant="subtitle2">Subtitle 2</Typography>
+      <Typography variant="body1">Body text 1</Typography>
+      <Typography variant="body2">Body text 2</Typography>
+      <Typography variant="button">Button Text</Typography>
+      <Typography variant="caption">Caption text</Typography>
+      <Typography variant="overline">Overline Text</Typography>
+    </>
+  );
+}
+```
+
+## Basic Usage
+
+<Canvas of={TypographyStories.TypographyExample} sourceState="none" />
+
+```tsx
+<Typography variant="h1">
+  The quick brown fox jumps over the lazy dog
+</Typography>
+```
+
+<Canvas of={TypographyStories.Body} sourceState="none" />
+
+```tsx
+<Typography variant="body1">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris.
+</Typography>
+```
+
+## Custom Styling
+
+Override default variant styles with custom properties:
+
+<Canvas of={TypographyStories.CustomStyling} sourceState="none" />
+
+```tsx
+<Typography variant="h2" weight="extrabold" align="center" color="blue">
+  Custom Styled Heading
+</Typography>
+```
+
+## Colors
+
+Full 22-color Tailwind palette with automatic dark mode support. Each color automatically adapts between light and dark themes:
+
+<Canvas of={TypographyStories.ColorExamples} sourceState="none" />
+
+```tsx
+<Typography variant="body1" color="slate">Slate</Typography>
+<Typography variant="body1" color="blue">Blue</Typography>
+<Typography variant="body1" color="red">Red</Typography>
+<Typography variant="body1" color="green">Green</Typography>
+// ... all 22 colors available
+```
+
+### Available Colors
+
+All colors automatically use:
+
+- **Light mode**: `text-{color}-700`
+- **Dark mode**: `text-{color}-300`
+
+Colors: slate (default), gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
+
+### Dark Mode
+
+See how all colors automatically adapt to dark mode:
+
+<Canvas of={TypographyStories.DarkModeExample} sourceState="none" />
+
+The same color prop values work seamlessly in both light and dark themes, ensuring consistent branding and readability.
+
+## Custom Component Override
+
+Use the `component` prop to render a different HTML element while keeping variant styling:
+
+<Canvas of={TypographyStories.CustomComponent} sourceState="none" />
+
+```tsx
+<Typography variant="h1" component="div">
+  This is an h1 variant rendered as a div
+</Typography>
+<Typography variant="body1" component="span">
+  This is body text rendered as a span
+</Typography>
+```
+
+## Text Decoration & Transform
+
+Apply decorations and text transformations:
+
+<Canvas of={TypographyStories.TextDecoration} sourceState="none" />
+
+```tsx
+<Typography variant="body1" decoration="underline">
+  Underlined text
+</Typography>
+<Typography
+  variant="body1"
+  decoration="underline"
+  decorationColor="decoration-blue-500"
+  decorationStyle="wavy"
+>
+  Blue wavy underline
+</Typography>
+<Typography variant="body1" decoration="line-through">
+  Strikethrough text
+</Typography>
+<Typography variant="body1" transform="uppercase">
+  Uppercase text
+</Typography>
+<Typography variant="body1" transform="capitalize">
+  capitalized text
+</Typography>
+```
+
+## Truncation
+
+Truncate text with ellipsis or clamp to a specific number of lines:
+
+<Canvas of={TypographyStories.Truncation} sourceState="none" />
+
+```tsx
+<Typography variant="body1" overflow="truncate">
+  This is a very long piece of text that will be truncated at the container
+  edge with an ellipsis
+</Typography>
+
+<Typography variant="body1" lineClamp="2">
+  This text will be clamped to exactly two lines and then show an ellipsis.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua.
+</Typography>
+```
+
+## Advanced Properties
+
+### Font Properties
+
+- **fontFamily**: "sans" | "serif" | "mono"
+- **size**: "xs" through "9xl" (overrides variant default)
+- **weight**: "thin" through "black"
+- **italic**: boolean
+- **smoothing**: "antialiased" | "subpixel-antialiased"
+- **numericVariant**: Advanced numeric font variants
+
+### Spacing & Layout
+
+- **tracking**: Letter spacing from "tighter" to "widest"
+- **leading**: Line height from "none" to "loose" or numeric values
+- **lineClamp**: Limit text to specific number of lines
+- **indent**: Text indentation
+
+### Alignment
+
+- **align**: Horizontal text alignment
+- **verticalAlign**: Vertical alignment for inline elements
+
+### Typography Utilities
+
+- **decoration**: underline, overline, line-through
+- **decorationColor**: Color of text decoration
+- **decorationStyle**: solid, double, dotted, dashed, wavy
+- **transform**: uppercase, lowercase, capitalize
+- **overflow**: truncate, ellipsis, clip
+- **wrap**: Control text wrapping behavior
+- **whitespace**: Control whitespace collapsing
+- **wordBreak**: Control word breaking behavior
+- **hyphens**: Control hyphenation
+
+## Default Element Mapping
+
+Each variant has a sensible default HTML element:
+
+- **h1-h6** → `<h1>` through `<h6>`
+- **subtitle1, subtitle2** → `<h6>`
+- **body1, body2** → `<p>`
+- **button, caption, overline, inherit** → `<span>`
+
+Override with the `component` prop when needed.

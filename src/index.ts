@@ -4,3 +4,5 @@ export type { PasswordFieldProps } from "./components/ui/PasswordField";
 export { default as PasswordField } from "./components/ui/PasswordField";
 export type { ButtonProps, ColorType } from "./components/ui/Button";
 export { Button } from "./components/ui/Button";
+export type { TypographyProps } from "./components/typography/Typography";
+export { Typography } from "./components/typography/Typography";
