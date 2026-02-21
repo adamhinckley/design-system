@@ -56,7 +56,7 @@ export default defineConfig(({ mode }) => {
           extends: true,
           test: {
             name: "unit",
-            environment: "jsdom",
+            environment: "happy-dom",
             setupFiles: ["./vitest.setup.ts"],
             include: ["src/**/*.test.tsx"],
           },

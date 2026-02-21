@@ -1,0 +1,161 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Canvas,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as DatePickerStories from "./DatePicker.stories";
+
+<Meta of={DatePickerStories} />
+
+<Title>DatePicker</Title>
+<Subtitle>
+  A non-native date picker with full color theming, size variants, locale
+  support, and optional month/year dropdown navigation.
+</Subtitle>
+
+## Features
+
+- **3 Sizes**: `sm`, `md`, `lg`
+- **22 Colors**: Full Tailwind palette with light/dark support
+- **Month/Year Picker**: Optional dropdown-based month/year selection
+- **Optional Transparent Trigger**: `removeBackground` for blended layouts
+- **Internationalization**: Locale-aware date formatting and calendar labels
+- **Controlled + Uncontrolled**: `selected` and `defaultSelected` support
+- **Accessibility**: Labeling, invalid/required states, keyboard-safe focus
+
+## Import
+
+```tsx
+import { DatePicker } from "@adamhinckley/design-system";
+```
+
+## TypeScript Interfaces
+
+```tsx
+type TailwindColors =
+  | "slate"
+  | "gray"
+  | "zinc"
+  | "neutral"
+  | "stone"
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
+
+interface DatePickerProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onChange" | "value" | "defaultValue"
+> {
+  label?: string;
+  helperText?: string;
+  errorText?: string;
+  fullWidth?: boolean;
+  color?: TailwindColors;
+  placeholder?: string;
+  selected?: Date;
+  defaultSelected?: Date;
+  onDateChange?: (date: Date | undefined) => void;
+  onOpenChange?: (open: boolean) => void;
+  required?: boolean;
+  enableMonthYearPicker?: boolean;
+  removeBackground?: boolean;
+  inputSize?: "sm" | "md" | "lg";
+  locale?: Intl.UnicodeBCP47LocaleIdentifier;
+}
+```
+
+## Basic Usage
+
+<Canvas of={DatePickerStories.DefaultExample} sourceState="none" />
+
+<Source
+  language="tsx"
+  code={`<DatePicker
+  label="Date"
+  helperText="Select a date"
+  placeholder="Pick a date"
+/>`}
+/>
+
+## Size Variants
+
+<Canvas of={DatePickerStories.SizeVariantsExample} sourceState="none" />
+
+```tsx
+<DatePicker label="Large" inputSize="lg" />
+<DatePicker label="Medium" inputSize="md" />
+<DatePicker label="Small" inputSize="sm" />
+```
+
+## Month/Year Picker
+
+<Canvas of={DatePickerStories.MonthYearPickerExample} sourceState="none" />
+
+```tsx
+<DatePicker
+  label="Month/Year picker"
+  helperText="Select month and year from dropdowns"
+  enableMonthYearPicker
+/>
+```
+
+## Interactive States
+
+<Canvas of={DatePickerStories.InteractiveStates} sourceState="none" />
+
+```tsx
+<DatePicker label="Default" helperText="Ready for input" />
+<DatePicker label="Error" errorText="Date is required" />
+<DatePicker label="Disabled" disabled />
+```
+
+## Remove Background
+
+<Canvas of={DatePickerStories.RemoveBackgroundExample} sourceState="none" />
+
+```tsx
+<DatePicker
+  label="Event date"
+  helperText="Use transparent trigger for layered surfaces"
+  removeBackground
+/>
+```
+
+## Light + Dark Color Coverage
+
+<Canvas of={DatePickerStories.LightAndDarkExample} sourceState="none" />
+
+## Internationalization
+
+<Canvas of={DatePickerStories.InternationalizationExample} sourceState="none" />
+
+```tsx
+<DatePicker locale="en-US" defaultSelected={new Date(2026, 1, 21)} />
+<DatePicker locale="fr-FR" defaultSelected={new Date(2026, 1, 21)} />
+<DatePicker locale="de-DE" defaultSelected={new Date(2026, 1, 21)} />
+<DatePicker locale="es-ES" defaultSelected={new Date(2026, 1, 21)} />
+```
+
+## Usage Guidance
+
+- Use **DatePicker** for single-date selection with consistent design-system styling.
+- Use `enableMonthYearPicker` when users need faster navigation across distant dates.
+- Use `selected` + `onDateChange` for controlled forms, or `defaultSelected` for simpler uncontrolled usage.
+- Use `locale` to localize formatted values, month names, and weekday labels.
+- Use `errorText` to communicate validation failures and `helperText` for supportive guidance.
