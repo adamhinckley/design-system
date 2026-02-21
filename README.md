@@ -329,11 +329,7 @@ function ControlledDatePicker() {
   const [value, setValue] = useState<Date | undefined>();
 
   return (
-    <DatePicker
-      label="Start date"
-      selected={value}
-      onDateChange={setValue}
-    />
+    <DatePicker label="Start date" selected={value} onDateChange={setValue} />
   );
 }
 ```
