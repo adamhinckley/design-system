@@ -45,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const I18N_LOCALES = [
-  { label: "English ", locale: "en-US" },
+  { label: "English", locale: "en-US" },
   { label: "French", locale: "fr-FR" },
   { label: "German", locale: "de-DE" },
   { label: "Spanish", locale: "es-ES" },
