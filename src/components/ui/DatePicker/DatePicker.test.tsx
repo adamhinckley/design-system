@@ -224,13 +224,13 @@ describe("DatePicker", () => {
     expect(trigger).toHaveClass("bg-transparent");
   });
 
-  it("renders optional calendar icon when enabled", () => {
+  it("renders calendar icon by default and hides it when requested", () => {
     const { rerender } = render(<DatePicker />);
 
-    expect(screen.queryByTestId("date-picker-calendar-icon")).toBeNull();
-
-    rerender(<DatePicker showCalendarIcon />);
     expect(screen.getByTestId("date-picker-calendar-icon")).toBeInTheDocument();
+
+    rerender(<DatePicker hideCalendarIcon />);
+    expect(screen.queryByTestId("date-picker-calendar-icon")).toBeNull();
   });
 
   it("supports inputSize variants", () => {
