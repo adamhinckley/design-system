@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { CalendarDays } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -80,16 +80,19 @@ export function DatePicker({
   const sizeClass = inputSizeClasses[inputSize];
   const shouldShowCalendarIcon = showCalendarIcon ?? !hideCalendarIcon;
 
-  const setOpenState = (nextOpen: boolean) => {
-    setOpen(nextOpen);
-    onOpenChange?.(nextOpen);
-  };
+  const setOpenState = useCallback(
+    (nextOpen: boolean) => {
+      setOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [onOpenChange],
+  );
 
-  useEscapeToClose(open, () => setOpenState(false));
+  const handleClose = useCallback(() => {
+    setOpenState(false);
+  }, [setOpenState]);
 
-  useEffect(() => {
-    if (resolvedValue) setViewMonth(monthStart(resolvedValue));
-  }, [resolvedValue]);
+  useEscapeToClose(open, handleClose);
 
   useEffect(() => {
     if (!open) return;
@@ -105,15 +108,32 @@ export function DatePicker({
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("touchstart", onPointerDown);
     };
-  }, [open]);
+  }, [open, setOpenState]);
 
   const displayValue = resolvedValue
     ? formatDate(resolvedValue, locale)
     : placeholder;
-  const applyDate = (nextDate: Date | undefined) => {
-    if (selected === undefined) setInternalValue(nextDate);
-    onDateChange?.(nextDate);
-  };
+  const applyDate = useCallback(
+    (nextDate: Date | undefined) => {
+      if (selected === undefined) setInternalValue(nextDate);
+      onDateChange?.(nextDate);
+    },
+    [onDateChange, selected],
+  );
+
+  const handleToggleOpen = useCallback(() => {
+    const nextOpen = !open;
+    if (nextOpen) setViewMonth(monthStart(resolvedValue ?? new Date()));
+    setOpenState(nextOpen);
+  }, [open, resolvedValue, setOpenState]);
+
+  const handleCalendarDateChange = useCallback(
+    (nextDate: Date | undefined) => {
+      applyDate(nextDate);
+      setOpenState(false);
+    },
+    [applyDate, setOpenState],
+  );
 
   return (
     <div
@@ -150,7 +170,7 @@ export function DatePicker({
           !errorText && currentColor.focus,
           errorText && "border-destructive focus-visible:ring-destructive",
         )}
-        onClick={() => setOpenState(!open)}
+        onClick={handleToggleOpen}
         {...props}
       >
         <span className="flex-1 truncate">{displayValue}</span>
@@ -175,10 +195,7 @@ export function DatePicker({
           selectedDate={resolvedValue}
           locale={locale}
           onViewMonthChange={setViewMonth}
-          onDateChange={(nextDate) => {
-            applyDate(nextDate);
-            setOpenState(false);
-          }}
+          onDateChange={handleCalendarDateChange}
         />
       ) : null}
 

@@ -14,7 +14,7 @@ export const resolveLocale = (
     if (!warnedInvalidLocales.has(rawLocale)) {
       warnedInvalidLocales.add(rawLocale);
       console.error(
-        `[DatePicker] Invalid locale \"${rawLocale}\" passed. Falling back to \"${DEFAULT_LOCALE}\".`,
+        `[DatePicker] Invalid locale "${rawLocale}" passed. Falling back to "${DEFAULT_LOCALE}".`,
       );
     }
     return DEFAULT_LOCALE;
