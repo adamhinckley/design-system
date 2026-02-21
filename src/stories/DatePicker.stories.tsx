@@ -137,7 +137,7 @@ export const SizeVariantsExample: Story = {
   ),
 };
 
-export const InteractiveStates: Story = {
+export const InteractiveStatesExample: Story = {
   render: () => (
     <div className="grid gap-3 min-h-104">
       <DatePicker label="Default" helperText="Ready for input" />
