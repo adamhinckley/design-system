@@ -6,3 +6,5 @@ export type { ButtonProps, ColorType } from "./components/ui/Button";
 export { Button } from "./components/ui/Button";
 export type { TypographyProps } from "./components/ui/Typography";
 export { Typography } from "./components/ui/Typography";
+export type { DatePickerProps } from "./components/ui/DatePicker";
+export { DatePicker } from "./components/ui/DatePicker";

@@ -260,6 +260,93 @@ Same as `TextField` - inherits all props and behaviors with a built-in visibilit
 </details>
 
 <details>
+<summary><strong>DatePicker</strong></summary>
+
+An accessible date picker component with optional label, helper text, error state, and calendar popover.
+
+```tsx
+import { DatePicker } from "@adamhinckley/design-system";
+
+export default function App() {
+  return (
+    <DatePicker
+      label="Date of birth"
+      placeholder="Select date"
+      helperText="MM/DD/YYYY"
+      onDateChange={(date) => console.log(date)}
+    />
+  );
+}
+```
+
+#### Props
+
+- `label?: string` - Label text displayed above the trigger
+- `placeholder?: string` - Placeholder text when no date is selected (default: 'Select date')
+- `helperText?: string` - Helper text displayed below the field in normal state
+- `errorText?: string` - Error text displayed below the field in error state
+- `fullWidth?: boolean` - Whether the field should take full width (default: false)
+- `color?: TailwindColors` - Color theme for the component (default: 'slate')
+- `selected?: Date` - Controlled selected date
+- `defaultSelected?: Date` - Uncontrolled initial selected date
+- `onDateChange?: (date: Date | undefined) => void` - Called when the selected date changes
+- `onOpenChange?: (open: boolean) => void` - Called when the calendar popover opens or closes
+- `required?: boolean` - Marks the field as required for accessibility
+- `enableMonthYearPicker?: boolean` - Enables month/year selection UI in the popover (default: false)
+- `removeBackground?: boolean` - Remove the background color
+- `hideCalendarIcon?: boolean` - Hide the calendar icon (default: true)
+- `showCalendarIcon?: boolean` - Explicitly show/hide the calendar icon (overrides `hideCalendarIcon`)
+- `inputSize?: "sm" | "md" | "lg"` - Size variant of the input (default: 'md')
+- `locale?: Intl.UnicodeBCP47LocaleIdentifier` - Locale used to format the displayed date (default: 'en-US')
+- All standard HTML button props are supported
+
+#### Color Options
+
+Supports all Tailwind CSS palette colors:
+
+- Neutral: `slate`, `gray`, `zinc`, `neutral`, `stone`
+- Red: `red`, `orange`, `amber`
+- Yellow: `yellow`, `lime`
+- Green: `green`, `emerald`, `teal`
+- Cyan: `cyan`, `sky`
+- Blue: `blue`, `indigo`, `violet`
+- Purple: `purple`, `fuchsia`, `pink`, `rose`
+
+```tsx
+<DatePicker color="blue" label="Blue date picker" />
+<DatePicker color="green" label="Green date picker" />
+<DatePicker color="red" label="Red date picker" />
+```
+
+#### Examples
+
+Controlled usage:
+
+```tsx
+import { useState } from "react";
+
+function ControlledDatePicker() {
+  const [value, setValue] = useState<Date | undefined>();
+
+  return (
+    <DatePicker label="Start date" selected={value} onDateChange={setValue} />
+  );
+}
+```
+
+With error text:
+
+```tsx
+<DatePicker
+  label="Due date"
+  errorText="Please select a valid date"
+  showCalendarIcon
+/>
+```
+
+</details>
+
+<details>
 <summary><strong>Typography</strong></summary>
 
 A flexible typography component with comprehensive text styling options and Material-UI compatible variant API. Supports automatic dark mode color adaptation.
@@ -400,8 +487,12 @@ Components use Tailwind CSS for styling, so customization can be done through Ta
 Full TypeScript support is included. Import types for components:
 
 ```tsx
-import { Button, TextField } from "@adamhinckley/design-system";
-import type { ButtonProps, InputProps } from "@adamhinckley/design-system";
+import { Button, DatePicker, TextField } from "@adamhinckley/design-system";
+import type {
+  ButtonProps,
+  DatePickerProps,
+  InputProps,
+} from "@adamhinckley/design-system";
 
 function MyButton(props: ButtonProps) {
   return <Button {...props} />;
@@ -409,6 +500,10 @@ function MyButton(props: ButtonProps) {
 
 function MyInput(props: InputProps) {
   return <TextField {...props} />;
+}
+
+function MyDatePicker(props: DatePickerProps) {
+  return <DatePicker {...props} />;
 }
 ```
 

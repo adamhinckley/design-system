@@ -1,6 +1,7 @@
 import { forwardRef, useId } from "react";
 
 import { cn } from "@/lib/utils";
+import { inputSizeClasses } from "@/lib/constants";
 
 export type InputProps = React.ComponentProps<"input"> & {
   helperText?: string;
@@ -197,14 +198,8 @@ const inputColorClasses = {
   },
 } as const;
 
-const sizeClasses = {
-  sm: "h-9 text-sm",
-  md: "h-11 text-base",
-  lg: "h-12 text-lg",
-} as const;
-
 type InputColor = keyof typeof inputColorClasses;
-type InputSize = keyof typeof sizeClasses;
+type InputSize = keyof typeof inputSizeClasses;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -233,7 +228,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const hasStartAdornment = Boolean(startAdornment);
     const hasEndAdornment = Boolean(endAdornment);
     const colorClasses = inputColorClasses[color];
-    const sizeClass = sizeClasses[inputSize];
+    const sizeClass = inputSizeClasses[inputSize];
 
     return (
       <div

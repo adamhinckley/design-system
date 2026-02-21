@@ -160,6 +160,20 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  :where(
+      a[href],
+      button,
+      summary,
+      label[for],
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"],
+      [role="button"]
+    ):not(:disabled):not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

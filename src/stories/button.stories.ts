@@ -2,10 +2,11 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import "@/index.css";
 
-import { Button, type ColorType } from "../components/ui/Button";
+import { Button } from "../components/ui/Button";
 import { ArrowDownIcon } from "./assets/ArrowDownIcon";
+import type { TailwindColors } from "@/lib/types";
 
-const COLORS: ColorType[] = [
+const COLORS: TailwindColors[] = [
   "slate",
   "gray",
   "zinc",
