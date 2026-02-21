@@ -29,7 +29,6 @@ export interface DatePickerProps extends Omit<
   enableMonthYearPicker?: boolean;
   removeBackground?: boolean;
   hideCalendarIcon?: boolean;
-  showCalendarIcon?: boolean;
   inputSize?: DatePickerSize;
   locale?: Intl.UnicodeBCP47LocaleIdentifier;
 }
@@ -53,8 +52,7 @@ export function DatePicker({
   required,
   enableMonthYearPicker = false,
   removeBackground = false,
-  hideCalendarIcon = true,
-  showCalendarIcon,
+  hideCalendarIcon = false,
   inputSize = "md",
   locale = "en-US",
   ...props
@@ -78,7 +76,6 @@ export function DatePicker({
   const helperContent = errorText || helperText;
   const currentColor = datePickerColorClasses[color];
   const sizeClass = inputSizeClasses[inputSize];
-  const shouldShowCalendarIcon = showCalendarIcon ?? !hideCalendarIcon;
 
   const setOpenState = useCallback(
     (nextOpen: boolean) => {
@@ -174,7 +171,7 @@ export function DatePicker({
         {...props}
       >
         <span className="flex-1 truncate">{displayValue}</span>
-        {shouldShowCalendarIcon ? (
+        {!hideCalendarIcon ? (
           <CalendarDays
             aria-hidden="true"
             data-testid="date-picker-calendar-icon"
