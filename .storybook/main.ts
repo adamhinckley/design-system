@@ -23,6 +23,9 @@ const config: StorybookConfig = {
           "@": path.resolve(dirname, "../src"),
         },
       },
+      build: {
+        chunkSizeWarningLimit: 1000,
+      },
     });
   },
 };
