@@ -92,6 +92,7 @@ export const SizesExample: Story = {
       React.createElement(Button, { size: "lg", children: "Large" }),
       React.createElement(Button, {
         size: "icon",
+        "aria-label": "Download",
         children: React.createElement(ArrowDownIcon),
       }),
     ),

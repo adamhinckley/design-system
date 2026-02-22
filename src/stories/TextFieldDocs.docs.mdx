@@ -3,6 +3,7 @@ import {
   Title,
   Subtitle,
   Canvas,
+  ArgTypes,
   Source,
 } from "@storybook/addon-docs/blocks";
 import * as InputStories from "./TextField.stories";
@@ -25,52 +26,12 @@ import * as InputStories from "./TextField.stories";
 - **Password**: Optional visibility toggle
 - **Transparent**: Remove background for overlay layouts
 
-## TypeScript
+## Props
 
-### InputProps Interface
+The table below is generated from the component TypeScript types via Storybook
+docgen, so it stays in sync automatically as props change.
 
-```tsx
-interface InputProps extends React.ComponentProps<"input"> {
-  helperText?: string;
-  errorText?: string;
-  label?: string;
-  fullWidth?: boolean;
-  disabled?: boolean;
-  startAdornment?: React.ReactNode;
-  endAdornment?: React.ReactNode;
-  color?: ColorType;
-  removeBackground?: boolean;
-  inputSize?: "sm" | "md" | "lg";
-}
-
-type PasswordFieldProps = Omit<InputProps, "type" | "endAdornment"> & {
-  showVisibilityToggle?: boolean;
-};
-
-type ColorType =
-  | "slate"
-  | "gray"
-  | "zinc"
-  | "neutral"
-  | "stone"
-  | "red"
-  | "orange"
-  | "amber"
-  | "yellow"
-  | "lime"
-  | "green"
-  | "emerald"
-  | "teal"
-  | "cyan"
-  | "sky"
-  | "blue"
-  | "indigo"
-  | "violet"
-  | "purple"
-  | "fuchsia"
-  | "pink"
-  | "rose";
-```
+<ArgTypes of={InputStories} />
 
 ## Basic Usage
 

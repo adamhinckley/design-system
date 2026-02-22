@@ -3,6 +3,7 @@ import {
   Title,
   Subtitle,
   Canvas,
+  ArgTypes,
   Source,
 } from "@storybook/addon-docs/blocks";
 import * as ButtonStories from "./button.stories";
@@ -25,50 +26,12 @@ import { Button } from "../components/ui/Button";
 - **asChild**: Apply button styles to any element
 - **Responsive**: Works seamlessly across all screen sizes
 
-## TypeScript
+## Props
 
-### ButtonProps Interface
+The table below is generated from the component TypeScript types via Storybook
+docgen, so it stays in sync automatically as props change.
 
-```tsx
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?:
-    | "default"
-    | "secondary"
-    | "outline"
-    | "destructive"
-    | "ghost"
-    | "link";
-  size?: "default" | "sm" | "lg" | "icon";
-  asChild?: boolean;
-  color?: ColorType;
-  rounded?: boolean;
-  fullWidth?: boolean;
-}
-
-type ColorType =
-  | "slate"
-  | "gray"
-  | "zinc"
-  | "neutral"
-  | "stone"
-  | "red"
-  | "orange"
-  | "amber"
-  | "yellow"
-  | "lime"
-  | "green"
-  | "emerald"
-  | "teal"
-  | "cyan"
-  | "sky"
-  | "blue"
-  | "indigo"
-  | "violet"
-  | "purple"
-  | "fuchsia"
-  | "pink"
-  | "rose";
-```
+<ArgTypes of={ButtonStories} />
 
 ## Accessibility
 
