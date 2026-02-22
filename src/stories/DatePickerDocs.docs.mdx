@@ -5,9 +5,9 @@ import {
   Canvas,
   Source,
 } from "@storybook/addon-docs/blocks";
-import * as DatePickerStories from "./DatePicker.stories.tsx";
+import * as DatePickerStories from "./DatePicker.stories";
 
-<Meta of={DatePickerStories} />
+<Meta of={DatePickerStories} name="DatePickerDocs" />
 
 <Title>DatePicker</Title>
 <Subtitle>
@@ -117,7 +117,7 @@ interface DatePickerProps extends Omit<
 
 ## Interactive States
 
-<Canvas of={DatePickerStories.InteractiveStates} sourceState="none" />
+<Canvas of={DatePickerStories.InteractiveStatesExample} sourceState="none" />
 
 ```tsx
 <DatePicker label="Default" helperText="Ready for input" />
