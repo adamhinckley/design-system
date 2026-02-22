@@ -3,6 +3,7 @@ import {
   Title,
   Subtitle,
   Canvas,
+  ArgTypes,
   Source,
 } from "@storybook/addon-docs/blocks";
 import * as TypographyStories from "./Typography.stories";
@@ -31,165 +32,12 @@ import * as TypographyStories from "./Typography.stories";
 npm install @adamhinckley/design-system
 ```
 
-## TypeScript
+## Props
 
-### TypographyProps Interface
+The table below is generated from the component TypeScript types via Storybook
+docgen, so it stays in sync automatically as props change.
 
-```tsx
-interface TypographyProps {
-  children: React.ReactNode;
-  className?: string;
-  variant?:
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "subtitle1"
-    | "subtitle2"
-    | "body1"
-    | "body2"
-    | "button"
-    | "caption"
-    | "overline"
-    | "inherit";
-  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
-
-  // Font properties
-  fontFamily?: "sans" | "serif" | "mono";
-  size?:
-    | "xs"
-    | "sm"
-    | "base"
-    | "lg"
-    | "xl"
-    | "2xl"
-    | "3xl"
-    | "4xl"
-    | "5xl"
-    | "6xl"
-    | "7xl"
-    | "8xl"
-    | "9xl";
-  weight?:
-    | "thin"
-    | "extralight"
-    | "light"
-    | "normal"
-    | "medium"
-    | "semibold"
-    | "bold"
-    | "extrabold"
-    | "black";
-  italic?: boolean;
-  smoothing?: "antialiased" | "subpixel-antialiased";
-  stretch?: "normal" | "condensed" | "expanded";
-  numericVariant?:
-    | "normal-nums"
-    | "ordinal"
-    | "slashed-zero"
-    | "lining-nums"
-    | "oldstyle-nums"
-    | "proportional-nums"
-    | "tabular-nums"
-    | "diagonal-fractions"
-    | "stacked-fractions";
-
-  // Spacing and layout
-  tracking?: "tighter" | "tight" | "normal" | "wide" | "wider" | "widest";
-  leading?:
-    | "none"
-    | "tight"
-    | "snug"
-    | "normal"
-    | "relaxed"
-    | "loose"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8"
-    | "9"
-    | "10";
-  lineClamp?: "1" | "2" | "3" | "4" | "5" | "6" | "none";
-  indent?:
-    | "0"
-    | "px"
-    | "0.5"
-    | "1"
-    | "1.5"
-    | "2"
-    | "2.5"
-    | "3"
-    | "3.5"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8";
-
-  // Alignment
-  align?: "left" | "center" | "right" | "justify" | "start" | "end";
-  verticalAlign?:
-    | "baseline"
-    | "top"
-    | "middle"
-    | "bottom"
-    | "text-top"
-    | "text-bottom"
-    | "sub"
-    | "super";
-
-  // Color
-  color?:
-    | "slate"
-    | "gray"
-    | "zinc"
-    | "neutral"
-    | "stone"
-    | "red"
-    | "orange"
-    | "amber"
-    | "yellow"
-    | "lime"
-    | "green"
-    | "emerald"
-    | "teal"
-    | "cyan"
-    | "sky"
-    | "blue"
-    | "indigo"
-    | "violet"
-    | "purple"
-    | "fuchsia"
-    | "pink"
-    | "rose"; // Defaults to "slate"
-
-  // Decoration
-  decoration?: "underline" | "overline" | "line-through" | "no-underline";
-  decorationColor?: string;
-  decorationStyle?: "solid" | "double" | "dotted" | "dashed" | "wavy";
-  decorationThickness?: "auto" | "from-font" | "0" | "1" | "2" | "4" | "8";
-  underlineOffset?: "auto" | "0" | "1" | "2" | "4" | "8";
-
-  // Transform and overflow
-  transform?: "uppercase" | "lowercase" | "capitalize" | "normal-case";
-  overflow?: "truncate" | "ellipsis" | "clip";
-  wrap?: "wrap" | "nowrap" | "balance" | "pretty";
-  whitespace?:
-    | "normal"
-    | "nowrap"
-    | "pre"
-    | "pre-line"
-    | "pre-wrap"
-    | "break-spaces";
-  wordBreak?: "normal" | "words" | "all" | "keep";
-  overflowWrap?: "normal" | "break-word";
-  hyphens?: "none" | "manual" | "auto";
-}
-```
+<ArgTypes of={TypographyStories} />
 
 ## All Variants
 

@@ -8,3 +8,5 @@ export type { TypographyProps } from "./components/ui/Typography";
 export { Typography } from "./components/ui/Typography";
 export type { DatePickerProps } from "./components/ui/DatePicker";
 export { DatePicker } from "./components/ui/DatePicker";
+export type { DateRangePickerProps } from "./components/ui/DatePicker";
+export { DateRangePicker } from "./components/ui/DatePicker";

@@ -19,6 +19,11 @@ export interface CalendarPopoverProps {
   viewMonth: Date;
   selectedDate?: Date;
   locale?: Intl.UnicodeBCP47LocaleIdentifier;
+  inline?: boolean;
+  dayTestIdPrefix?: string;
+  showDialogRole?: boolean;
+  minimal?: boolean;
+  showFooterActions?: boolean;
   onViewMonthChange: (nextViewMonth: Date) => void;
   onDateChange: (date: Date | undefined) => void;
 }
@@ -39,6 +44,11 @@ export function CalendarPopover({
   viewMonth,
   selectedDate,
   locale = "en-US",
+  inline = false,
+  dayTestIdPrefix = "non-native-day",
+  showDialogRole = true,
+  minimal = false,
+  showFooterActions = true,
   onViewMonthChange,
   onDateChange,
 }: CalendarPopoverProps) {
@@ -82,9 +92,14 @@ export function CalendarPopover({
   }, [viewMonth]);
   return (
     <div
-      role="dialog"
-      aria-label="Calendar"
-      className="absolute top-full z-10 mt-2 w-full rounded-lg border border-slate-200 bg-white p-3 shadow-lg dark:border-slate-700 dark:bg-slate-900"
+      role={showDialogRole ? "dialog" : undefined}
+      aria-label={showDialogRole ? "Calendar" : undefined}
+      className={cn(
+        minimal
+          ? "rounded-lg bg-transparent p-0 shadow-none"
+          : "rounded-lg border border-slate-200 bg-white p-3 shadow-lg dark:border-slate-700 dark:bg-slate-900",
+        inline ? "w-full" : "absolute top-full z-10 mt-2 w-full",
+      )}
     >
       {enableMonthYearPicker ? (
         <MonthYearPicker
@@ -139,14 +154,14 @@ export function CalendarPopover({
             <button
               key={dayDateId}
               type="button"
-              data-testid={`non-native-day-${dayDateId}`}
+              data-testid={`${dayTestIdPrefix}-${dayDateId}`}
               aria-label={date.toDateString()}
               className={cn(
                 "h-9 rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1",
                 inputColors.focus,
                 inCurrentMonth
                   ? "text-slate-800 dark:text-slate-200"
-                  : "text-slate-400 dark:text-slate-600",
+                  : "text-slate-500 dark:text-slate-400",
                 !selectedDay && calendarColors.hover,
                 selectedDay && calendarColors.selected,
                 todayDay && !selectedDay && cn("ring-1", calendarColors.today),
@@ -164,37 +179,39 @@ export function CalendarPopover({
         })}
       </div>
 
-      <div className="mt-3 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={() => onDateChange(undefined)}
-          className={cn(
-            "h-8 rounded-md border px-2 text-xs text-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300",
-            inputColors.border,
-            inputColors.focus,
-            calendarColors.hover,
-          )}
-        >
-          Clear
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            onViewMonthChange(
-              new Date(today.getFullYear(), today.getMonth(), 1),
-            );
-            onDateChange(today);
-          }}
-          className={cn(
-            "h-8 rounded-md border px-2 text-xs text-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300",
-            inputColors.border,
-            inputColors.focus,
-            calendarColors.hover,
-          )}
-        >
-          Today
-        </button>
-      </div>
+      {showFooterActions ? (
+        <div className="mt-3 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => onDateChange(undefined)}
+            className={cn(
+              "h-8 rounded-md border px-2 text-xs text-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300",
+              inputColors.border,
+              inputColors.focus,
+              calendarColors.hover,
+            )}
+          >
+            Clear
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              onViewMonthChange(
+                new Date(today.getFullYear(), today.getMonth(), 1),
+              );
+              onDateChange(today);
+            }}
+            className={cn(
+              "h-8 rounded-md border px-2 text-xs text-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-1 dark:text-slate-300",
+              inputColors.border,
+              inputColors.focus,
+              calendarColors.hover,
+            )}
+          >
+            Today
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

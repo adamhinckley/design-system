@@ -3,6 +3,7 @@ import {
   Title,
   Subtitle,
   Canvas,
+  ArgTypes,
   Source,
 } from "@storybook/addon-docs/blocks";
 import * as DatePickerStories from "./DatePicker.stories";
@@ -31,54 +32,12 @@ import * as DatePickerStories from "./DatePicker.stories";
 import { DatePicker } from "@adamhinckley/design-system";
 ```
 
-## TypeScript Interfaces
+## Props
 
-```tsx
-type TailwindColors =
-  | "slate"
-  | "gray"
-  | "zinc"
-  | "neutral"
-  | "stone"
-  | "red"
-  | "orange"
-  | "amber"
-  | "yellow"
-  | "lime"
-  | "green"
-  | "emerald"
-  | "teal"
-  | "cyan"
-  | "sky"
-  | "blue"
-  | "indigo"
-  | "violet"
-  | "purple"
-  | "fuchsia"
-  | "pink"
-  | "rose";
+The table below is generated from the component TypeScript types via Storybook
+docgen, so it stays in sync automatically as props change.
 
-interface DatePickerProps extends Omit<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  "onChange" | "value" | "defaultValue"
-> {
-  label?: string;
-  helperText?: string;
-  errorText?: string;
-  fullWidth?: boolean;
-  color?: TailwindColors;
-  placeholder?: string;
-  selected?: Date;
-  defaultSelected?: Date;
-  onDateChange?: (date: Date | undefined) => void;
-  onOpenChange?: (open: boolean) => void;
-  required?: boolean;
-  enableMonthYearPicker?: boolean;
-  removeBackground?: boolean;
-  inputSize?: "sm" | "md" | "lg";
-  locale?: Intl.UnicodeBCP47LocaleIdentifier;
-}
-```
+<ArgTypes of={DatePickerStories} />
 
 ## Basic Usage
 

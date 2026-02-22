@@ -78,10 +78,12 @@ export const DefaultExample: Story = {
 
     await userEvent.click(trigger);
     await userEvent.click(canvas.getByRole("button", { name: "Clear" }));
-    await expect(
-      canvas.queryByRole("dialog", { name: "Calendar" }),
-    ).not.toBeInTheDocument();
     await expect(trigger).toHaveTextContent("Pick a date");
+
+    await userEvent.click(trigger);
+    await expect(
+      canvas.getByRole("dialog", { name: "Calendar" }),
+    ).toBeInTheDocument();
   },
 };
 

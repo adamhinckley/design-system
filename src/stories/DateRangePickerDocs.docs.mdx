@@ -1,0 +1,132 @@
+import {
+  Meta,
+  Title,
+  Subtitle,
+  Canvas,
+  ArgTypes,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import * as DateRangePickerStories from "./DateRangePicker.stories";
+
+<Meta of={DateRangePickerStories} name="DateRangePickerDocs" />
+
+<Title>DateRangePicker</Title>
+<Subtitle>
+  A dual-date picker for selecting start and end dates with full Tailwind color
+  theming, locale-aware formatting, optional month/year dropdown navigation, and
+  accessible interactions.
+</Subtitle>
+
+## Features
+
+- **Range Selection**: Pick both start and end dates in one control
+- **3 Sizes**: `sm`, `md`, `lg`
+- **22 Colors**: Full Tailwind palette with light/dark support
+- **Month/Year Picker**: Optional dropdown navigation for faster date jumps
+- **Optional Transparent Trigger**: `removeBackground` for layered layouts
+- **Locale Support**: Locale-aware formatting for displayed date ranges
+- **Controlled + Uncontrolled**: Controlled props or default values for simple forms
+- **Accessibility**: Labeling, required/invalid states, keyboard-safe focus and dialog semantics
+
+## Import
+
+```tsx
+import { DateRangePicker } from "@adamhinckley/design-system";
+```
+
+## Props
+
+The table below is generated from the component TypeScript types via Storybook
+docgen, so it stays in sync automatically as props change.
+
+<ArgTypes of={DateRangePickerStories} />
+
+## Basic Usage
+
+<Canvas of={DateRangePickerStories.DefaultExample} sourceState="none" />
+
+<Source
+  language="tsx"
+  code={`<DateRangePicker
+  label="Travel dates"
+  helperText="Pick start and end dates"
+  startPlaceholder="Start date"
+  endPlaceholder="End date"
+/>`}
+/>
+
+## Size Variants
+
+<Canvas of={DateRangePickerStories.SizeVariantsExample} sourceState="none" />
+
+```tsx
+<DateRangePicker label="Large" inputSize="lg" />
+<DateRangePicker label="Medium" inputSize="md" />
+<DateRangePicker label="Small" inputSize="sm" />
+```
+
+## Month/Year Picker
+
+<Canvas of={DateRangePickerStories.MonthYearPickerExample} sourceState="none" />
+
+```tsx
+<DateRangePicker
+  label="Month/year range"
+  helperText="Use dropdowns to navigate"
+  enableMonthYearPicker
+/>
+```
+
+## Interactive States
+
+<Canvas
+  of={DateRangePickerStories.InteractiveStatesExample}
+  sourceState="none"
+/>
+
+```tsx
+<DateRangePicker label="Default" helperText="Ready for input" />
+<DateRangePicker label="Error" errorText="Date range is required" />
+```
+
+## Remove Background
+
+<Canvas
+  of={DateRangePickerStories.RemoveBackgroundExample}
+  sourceState="none"
+/>
+
+```tsx
+<DateRangePicker
+  label="Range"
+  helperText="Transparent trigger background"
+  removeBackground
+/>
+```
+
+## Light + Dark Color Coverage
+
+<Canvas of={DateRangePickerStories.LightAndDarkExample} sourceState="none" />
+
+## Internationalization
+
+<Canvas
+  of={DateRangePickerStories.InternationalizationExample}
+  sourceState="none"
+/>
+
+```tsx
+<DateRangePicker locale="en-US" />
+<DateRangePicker locale="fr-FR" />
+<DateRangePicker locale="de-DE" />
+<DateRangePicker locale="es-ES" />
+```
+
+## Usage Guidance
+
+- Use **DateRangePicker** when users need to select both start and end dates together.
+- Use `enableMonthYearPicker` for faster navigation across distant months or years.
+- Use `startSelected`/`endSelected` + callbacks for controlled form state.
+- Use `defaultStartSelected`/`defaultEndSelected` for simple uncontrolled setup.
+- Use `locale` to localize displayed range text and calendar labels.
+- Use `errorText` for validation feedback and `helperText` for supportive guidance.
