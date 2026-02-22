@@ -5,15 +5,7 @@ import {
   Canvas,
   Source,
 } from "@storybook/addon-docs/blocks";
-import meta, {
-  DefaultExample,
-  SizeVariantsExample,
-  MonthYearPickerExample,
-  InteractiveStates,
-  RemoveBackgroundExample,
-  LightAndDarkExample,
-  InternationalizationExample,
-} from "./DatePicker.stories";
+import meta, * as DatePickerStories from "./DatePicker.stories";
 
 <Meta of={meta} />
 
@@ -90,7 +82,7 @@ interface DatePickerProps extends Omit<
 
 ## Basic Usage
 
-<Canvas of={DefaultExample} sourceState="none" />
+<Canvas of={DatePickerStories.DefaultExample} sourceState="none" />
 
 <Source
   language="tsx"
@@ -103,7 +95,7 @@ interface DatePickerProps extends Omit<
 
 ## Size Variants
 
-<Canvas of={SizeVariantsExample} sourceState="none" />
+<Canvas of={DatePickerStories.SizeVariantsExample} sourceState="none" />
 
 ```tsx
 <DatePicker label="Large" inputSize="lg" />
@@ -113,7 +105,7 @@ interface DatePickerProps extends Omit<
 
 ## Month/Year Picker
 
-<Canvas of={MonthYearPickerExample} sourceState="none" />
+<Canvas of={DatePickerStories.MonthYearPickerExample} sourceState="none" />
 
 ```tsx
 <DatePicker
@@ -125,7 +117,7 @@ interface DatePickerProps extends Omit<
 
 ## Interactive States
 
-<Canvas of={InteractiveStates} sourceState="none" />
+<Canvas of={DatePickerStories.InteractiveStates} sourceState="none" />
 
 ```tsx
 <DatePicker label="Default" helperText="Ready for input" />
@@ -135,7 +127,7 @@ interface DatePickerProps extends Omit<
 
 ## Remove Background
 
-<Canvas of={RemoveBackgroundExample} sourceState="none" />
+<Canvas of={DatePickerStories.RemoveBackgroundExample} sourceState="none" />
 
 ```tsx
 <DatePicker
@@ -147,11 +139,11 @@ interface DatePickerProps extends Omit<
 
 ## Light + Dark Color Coverage
 
-<Canvas of={LightAndDarkExample} sourceState="none" />
+<Canvas of={DatePickerStories.LightAndDarkExample} sourceState="none" />
 
 ## Internationalization
 
-<Canvas of={InternationalizationExample} sourceState="none" />
+<Canvas of={DatePickerStories.InternationalizationExample} sourceState="none" />
 
 ```tsx
 <DatePicker locale="en-US" defaultSelected={new Date(2026, 1, 21)} />
