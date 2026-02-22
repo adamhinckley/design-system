@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run build:lib",
+    "build": "tsx scripts/build.ts",
     "build:lib": "vite build --mode lib && tsc -p tsconfig.build.json",
     "yalc:publish": "pnpm run build:lib && yalc publish --private",
     "yalc:push": "pnpm run build:lib && yalc push",
