@@ -347,6 +347,116 @@ With error text:
 </details>
 
 <details>
+<summary><strong>DateRangePicker</strong></summary>
+
+An accessible date range picker for selecting both start and end dates in one field, with optional month/year navigation and locale-aware formatting.
+
+```tsx
+import { DateRangePicker } from "@adamhinckley/design-system";
+
+export default function App() {
+  return (
+    <DateRangePicker
+      label="Travel dates"
+      startPlaceholder="Start date"
+      endPlaceholder="End date"
+      helperText="Select departure and return"
+      onRangeChange={({ startDate, endDate }) => {
+        console.log(startDate, endDate);
+      }}
+    />
+  );
+}
+```
+
+#### Props
+
+- `label?: string` - Label text displayed above the trigger
+- `startPlaceholder?: string` - Placeholder text for start date (default: 'Start date')
+- `endPlaceholder?: string` - Placeholder text for end date (default: 'End date')
+- `helperText?: string` - Helper text displayed below the field in normal state
+- `errorText?: string` - Error text displayed below the field in error state
+- `fullWidth?: boolean` - Whether the field should take full width (default: false)
+- `color?: TailwindColors` - Color theme for the component (default: 'slate')
+- `startSelected?: Date` - Controlled selected start date
+- `endSelected?: Date` - Controlled selected end date
+- `defaultStartSelected?: Date` - Uncontrolled initial start date
+- `defaultEndSelected?: Date` - Uncontrolled initial end date
+- `onStartDateChange?: (date: Date | undefined) => void` - Called when the start date changes
+- `onEndDateChange?: (date: Date | undefined) => void` - Called when the end date changes
+- `onRangeChange?: (range: { startDate: Date | undefined; endDate: Date | undefined }) => void` - Called when either date changes
+- `onOpenChange?: (open: boolean) => void` - Called when the calendar popover opens or closes
+- `required?: boolean` - Marks the field as required for accessibility
+- `enableMonthYearPicker?: boolean` - Enables month/year selection UI in the popover (default: false)
+- `removeBackground?: boolean` - Remove the background color
+- `hideCalendarIcon?: boolean` - Hide the calendar icon (default: false)
+- `inputSize?: "sm" | "md" | "lg"` - Size variant of the input (default: 'md')
+- `locale?: Intl.UnicodeBCP47LocaleIdentifier` - Locale used to format the displayed date range (default: 'en-US')
+- All standard HTML div props are supported
+
+#### Color Options
+
+Supports all Tailwind CSS palette colors:
+
+- Neutral: `slate`, `gray`, `zinc`, `neutral`, `stone`
+- Red: `red`, `orange`, `amber`
+- Yellow: `yellow`, `lime`
+- Green: `green`, `emerald`, `teal`
+- Cyan: `cyan`, `sky`
+- Blue: `blue`, `indigo`, `violet`
+- Purple: `purple`, `fuchsia`, `pink`, `rose`
+
+```tsx
+<DateRangePicker color="blue" label="Blue range picker" />
+<DateRangePicker color="green" label="Green range picker" />
+<DateRangePicker color="red" label="Red range picker" />
+```
+
+#### Examples
+
+Controlled usage:
+
+```tsx
+import { useState } from "react";
+
+function ControlledDateRangePicker() {
+  const [startDate, setStartDate] = useState<Date | undefined>();
+  const [endDate, setEndDate] = useState<Date | undefined>();
+
+  return (
+    <DateRangePicker
+      label="Booking window"
+      startSelected={startDate}
+      endSelected={endDate}
+      onStartDateChange={setStartDate}
+      onEndDateChange={setEndDate}
+    />
+  );
+}
+```
+
+With month/year picker:
+
+```tsx
+<DateRangePicker
+  label="Month/year range"
+  helperText="Use dropdowns to navigate"
+  enableMonthYearPicker
+/>
+```
+
+With error text:
+
+```tsx
+<DateRangePicker
+  label="Trip dates"
+  errorText="Please select a valid date range"
+/>
+```
+
+</details>
+
+<details>
 <summary><strong>Typography</strong></summary>
 
 A flexible typography component with comprehensive text styling options and Material-UI compatible variant API. Supports automatic dark mode color adaptation.
@@ -487,10 +597,16 @@ Components use Tailwind CSS for styling, so customization can be done through Ta
 Full TypeScript support is included. Import types for components:
 
 ```tsx
-import { Button, DatePicker, TextField } from "@adamhinckley/design-system";
+import {
+  Button,
+  DatePicker,
+  DateRangePicker,
+  TextField,
+} from "@adamhinckley/design-system";
 import type {
   ButtonProps,
   DatePickerProps,
+  DateRangePickerProps,
   InputProps,
 } from "@adamhinckley/design-system";
 
@@ -504,6 +620,10 @@ function MyInput(props: InputProps) {
 
 function MyDatePicker(props: DatePickerProps) {
   return <DatePicker {...props} />;
+}
+
+function MyDateRangePicker(props: DateRangePickerProps) {
+  return <DateRangePicker {...props} />;
 }
 ```
 
